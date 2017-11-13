@@ -1,0 +1,69 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Conten_Login/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Conten_Login/css/EstiloLogin.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="card card-container">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            <img id="profile-img" class="profile-img-card" src="~/Conten_Login/images/user.png"  />
+
+        @using (Ajax.BeginForm("Login", "Inicio_Principal_", new AjaxOptions() { HttpMethod = "POST" }))
+        {
+            @Html.AntiForgeryToken()
+            <p id="profile-name" class="profile-name-card"></p>
+            <span id="reauth-email" class="reauth-email"></span>
+        <label for="inputsm">Nombre :</label>
+        <input class="form-control" type="text" id="inputEmail" name="Nombre" placeholder="Nombre de Usuario" />
+
+
+            <p></p>
+            <p></p>
+        <label for="inputsm">Contraseña :</label>
+        <input class="form-control" type="text" id="inputPassword" name="Contraseña" placeholder="Ingrese Contraseña" />    
+
+
+            <div id="remember" class="checkbox">
+            </div>
+            <!--<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>-->
+        <p></p>
+        <button class="btn btn-lg btn-primary btn-block btn-signin" OnClick="btnLogin_Click" >Iniciar Sesión</button>
+        }
+            <p></p> 
+        <p></p>
+
+            <a href="@Url.Action("RegistroLogin")" class="forgot-password">
+                <Label ID="Label1" runat="server" Text="Registrarme como usuario">Registrarme como usuario</Label>
+            </a>
+
+            <a href="Principal.aspx" class="forgot-password">
+                <Label ID="Label3" runat="server" Text="Volver al inicio">Volver al inicio</Label>
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+    <script type="text/javascript">
+    function validation() {
+        swal("Felicidades!", "Has iniciado sesion!", "success");
+    }
+    </script>
+
+
+
+
+    <div>
+    </div>
+</body>
+</html>

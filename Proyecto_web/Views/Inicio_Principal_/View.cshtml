@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+    <script src="~/Scripts/Push.js"></script>
+    <script src="https://github.com/Nickersoft/push.js/blob/master/bin/push.min.js"></script>
+</head>
+<body>
+    <script>
+            Push.create("Bienvenido  a HealthyFood",{
+                body: "Te has logeado!",
+                icon: "~/Recursos/Logo4.jpg"  })
+</script>
+    <div> 
+        <button type="submit" onclick="">Notificacion</button>
+        
+    </div>
+</body>
+</html>

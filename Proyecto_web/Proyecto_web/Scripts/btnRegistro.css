@@ -1,0 +1,40 @@
+﻿@import url('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+body {
+
+  font-family: 'Alba';
+}
+.button {
+  width: 250px;
+  height: 40px;
+  background-color: red;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #fff;
+}
+.button:after, .button:before {
+  font-family:'Ionicons';
+  content: '\f2d8';
+  font-size: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transition: all 0.3s;
+  transform: translate(-50%, -50%);
+}
+.button:hover:after {
+  top: -50%;
+}
+.button:before {
+   font-family: 'Alba';
+  content: 'Registrarme';
+  font-size: 20px;
+  top: 190%;
+}
+.button:hover:before {
+  top: 50%;
+}

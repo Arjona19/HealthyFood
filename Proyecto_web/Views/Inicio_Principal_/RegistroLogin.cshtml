@@ -1,0 +1,95 @@
+﻿@model Proyecto_web.BO_Usuario.LoginBO
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Login Registro</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <link href="~/Conten_Login/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="~/Conten_Login/css/EstiloLogin.css" rel="stylesheet" />
+    <script src="~/Scripts/Push.js"></script>
+</head>
+
+
+<body>
+
+    <script>
+            Push.create("Bienvenido  a HealthyFood",{
+                body: "Te has logeado!",
+                icon: "https://www.artescritorio.com/wp-content/uploads/2015/11/monsterball-portada.pngg"
+            })
+    </script>
+    <div class="container">
+        <div class="card card-container">
+            <h2><a>Registro de Usuario</a></h2>
+        <p></p>
+        <p></p> 
+
+
+            <img id="profile-img" class="profile-img-card" src="~/Conten_Login/images/user.png" />
+
+
+            <p id="profile-name" class="profile-name-card"></p>
+            <span id="reauth-email" class="reauth-email"></span>
+        @using (Ajax.BeginForm("Registro","Inicio_Principal_", new AjaxOptions() { HttpMethod="POST"} ))
+        {
+            @Html.AntiForgeryToken()
+            <label for="inputsm">Nombre:</label> 
+            <input class="form-control" type="text" id="inputEmail" name="Nombre" placeholder="Ingrese su Nombre" />
+            
+            <p></p>
+            <p></p>
+
+            <label for="inputsm">Apellido:</label>
+            <input class="form-control" type="text" id="inputEmail" name="Apellido" placeholder="Ingrese su Apellido"/>
+           
+             <p></p>
+            <p></p>
+
+            <label for="inputsm">Correo:</label>
+            <input class="form-control" type="text" id="inputEmail" name="Email" placeholder="Ingrese su Correo"/>
+            
+            <p></p>
+            <p></p>
+
+            <label for="inputsm">Nombre de Usuario:</label>
+            <input class="form-control" type="text"  name="Nombre_Usuario" placeholder="Ingrese su Nombre de Usuario" />
+          
+           <p></p>
+            <p></p>
+
+            <label for="inputsm">Contraseña:</label>
+            <input class="form-control" type="text" id="inputEmail" name="Contraseña" placeholder="Ingrese su Contraseña"/>
+           
+            <div id="remember" class="checkbox">
+            </div>
+            <!--<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>-->
+            <p></p>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" OnClick="alert()">Registrarse</button>
+
+            <p></p>
+            <p></p>
+           }
+
+            <a href="Principal.aspx" class="forgot-password">
+                <Label ID="Label3" runat="server" Text="Volver al inicio">Volver al inicio</Label>
+            </a>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+   
+
+
+
+
+
+    <div> 
+    </div>
+</body>
+</html>

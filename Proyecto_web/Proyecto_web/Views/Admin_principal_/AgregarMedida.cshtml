@@ -1,0 +1,21 @@
+﻿
+@{
+    
+    Layout = "~/Views/Admin_principal_/Admin_Principal.cshtml";
+}
+
+<h2>AgregarMedida</h2>
+@using (Ajax.BeginForm("AgregarMedida", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="x_panel">
+        <div class="x_title"><h1>Agregar Medida</h1></div>
+        <div class="input-group">
+            <input class="form-control" name="Medida" type="text">
+            <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </span>
+        </div>
+    </div>
+}
+

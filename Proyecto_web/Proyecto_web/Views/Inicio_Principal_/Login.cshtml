@@ -1,0 +1,139 @@
+﻿@model Proyecto_web.Models.UsuarioModal
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    @*<link href="~/Conten_Login/css/bootstrap.min.css" rel="stylesheet" />*@
+    <link href="~/Conten_Login/css/EstiloLogin.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+   
+    <link href="~/Scripts/btnLogin.css" rel="stylesheet" />
+
+
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="card card-container fadeIn  ">
+            <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
+            @*<img id="profile-img" class="profile-img-card to-animate bounce animated " src="~/Conten_Login/images/user.png*@
+            <img class="profile-img-card to-animate bounce animated " src="~/Conten_Principal/images/LogoH.png" />  
+
+
+            <p id="profile-name" class="profile-name-card"></p>
+            <span id="reauth-email" class="reauth-email"></span>
+     @using (Ajax.BeginForm("Loguearse", "Inicio_Principal_", new AjaxOptions() { HttpMethod = "POST" }))
+     {
+    @Html.AntiForgeryToken()
+
+
+        <label for="inputsm">Nombre :</label>
+        <input class="form-control" data-validate-length-range="25" data-validate-words="2" required="required" type="text" id="Nombre_Usuario" name="Nombre_Usuario" placeholder="Nombre de Usuario" />
+
+
+            <p></p>
+            <p></p>
+        <label for="inputsm">Contraseña :</label>
+        <input class="form-control" data-validate-length-range="25" data-validate-words="2" required="required" type="password" id="inputPassword" name="Contraseña" placeholder="Ingrese Contraseña" />    
+
+        <p></p><p></p>
+        <p></p><p></p>
+
+        <div id="remember" class="checkbox">
+            <br />
+            <br />
+            <button @*class="btn btn-lg btn-primary btn-block btn-signin"*@ class="button" id="login"></button>
+        </div>     
+
+            <!--<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>-->
+        <p></p>
+     
+
+            <p></p> 
+        <p></p>
+            <a  href="@Url.Action("RegistroLogin", "Inicio_Principal_")" class="forgot-password">
+                <Label ID="Label1"  runat="server" >Registrarme como usuario</Label>
+            </a>
+
+     } <a href="Principal.aspx" class="forgot-password">
+        <Label ID="Label3" runat="server" Text="Volver al inicio">Volver al inicio</Label>
+    </a>
+            <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-danger"> Olvide mi contraseña!</button>
+            <p></p>
+         
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+    @using (Ajax.BeginForm("RecuperarContraseña", "Inicio_Principal_", new AjaxOptions() { HttpMethod = "POST" }))
+    {@Html.AntiForgeryToken();
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="exampleModalLabel">Recupera tu contraseña</h2>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name " class="col-form-label">Te enviaremos un correo electronico con tu contraseña</label>
+                                <input type="email" name="Correo" class="form-control" required="required" placeholder="Ingrese su Correo Electronico" id="recipient-name">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                     
+                        <button type="submit" class="btn btn-primary">Enviar</button> 
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+
+    
+
+    
+    
+
+
+    <div> 
+    </div>
+    
+    @if (ViewBag.ID == null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                swal('Ops!', 'Algo pusiste mal', 'error')
+            }
+        </script>
+        }
+   
+        @*@if (ViewBag.Reg == null)
+        {
+            <script type="text/javascript">
+            window.onload = function () {
+                swal('Te has registrado!', 'Ahora inicia sesion para empezar!', 'success')
+            }
+            </script>
+        }*@
+    
+
+</body>
+</html>
