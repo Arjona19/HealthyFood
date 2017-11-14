@@ -1,0 +1,38 @@
+﻿@import url('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+
+.button-Editar {
+ width: 100px;
+  height: 30px;
+  background-color: #0097ac;
+ 
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #fff;
+}
+.button-Editar:after, .button-Editar:before {
+  font-family:'Ionicons';
+  content: '\f3b1';
+  font-size: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transition: all 0.3s;
+  transform: translate(-50%, -50%);
+}
+.button-Editar:hover:after {
+  top: -50%;
+}
+.button-Editar:before {
+   font-family:Alba;
+  content: 'Editar';
+  font-size: 20px;
+  top: 190%;
+}
+.button-Editar:hover:before {
+  top: 50%;
+}

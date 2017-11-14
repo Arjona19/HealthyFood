@@ -1,0 +1,42 @@
+﻿@import url('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+body {
+
+  font-family: 'Alba';
+}
+
+.button-Agregar {
+ width: 150px;
+  height: 35px;
+  background-color: #26a860;
+  
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #fff;
+}
+.button-Agregar:after, .button-Agregar:before {
+  font-family:'Ionicons';
+  content: '\f2c7';
+  font-size: 40px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transition: all 0.3s;
+  transform: translate(-50%, -50%);
+}
+.button-Agregar:hover:after {
+  top: -50%;
+}
+.button-Agregar:before {
+   font-family: 'Alba';
+  content: 'Agregar';
+  font-size: 18px;
+  top: 190%;
+}
+.button-Agregar:hover:before {
+  top: 50%;
+}

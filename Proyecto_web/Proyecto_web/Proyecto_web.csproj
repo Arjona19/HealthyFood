@@ -3726,6 +3726,9 @@
     <Content Include="Conten_Principal\images\res_img_7.jpg" />
     <Content Include="Conten_Principal\images\res_img_8.jpg" />
     <Content Include="Scripts\animate.css" />
+    <Content Include="Scripts\btnAgregar.css" />
+    <Content Include="Scripts\btnEditar.css" />
+    <Content Include="Scripts\btnEliminar.css" />
     <Content Include="Scripts\btnLogin.css" />
     <Content Include="Scripts\btnRegistro.css" />
     <Content Include="Scripts\Login.css" />

@@ -1,0 +1,38 @@
+﻿@import url('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css');
+
+.button-Eliminar {
+ width: 100px;
+  height: 30px;
+  background-color: red;
+  
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 100px;
+  overflow: hidden;
+  cursor: pointer;
+  color: #fff;
+}
+.button-Eliminar:after, .button-Eliminar:before {
+  font-family:'Ionicons';
+  content: '\f36e';
+  font-size: 30px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transition: all 0.3s;
+  transform: translate(-50%, -50%);
+}
+.button-Eliminar:hover:after {
+  top: -50%;
+}
+.button-Eliminar:before {
+  font-family:Alba;
+  content: 'Eliminar';
+  font-size: 20px;
+  top: 190%;
+}
+.button-Eliminar:hover:before {
+  top: 50%;
+}

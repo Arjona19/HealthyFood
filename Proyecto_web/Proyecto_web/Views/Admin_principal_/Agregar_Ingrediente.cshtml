@@ -10,8 +10,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>*@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <link href="~/Scripts/animate.css" rel="stylesheet" />
-
-
+<link href="~/Scripts/btnAgregar.css" rel="stylesheet" />
+<link href="~/Scripts/btnEditar.css" rel="stylesheet" />
+<link href="~/Scripts/btnEliminar.css" rel="stylesheet" />
 <div class="clearfix"> </div>
 
 <div class="x_panel">
@@ -30,7 +31,7 @@
     </div>
     <div class="x_content">
 
-        <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-danger"> Agregar Ingrediente</button>
+        <button data-toggle="modal" data-target="#exampleModal" class="button-Agregar"> </button>
     </div>
 </div>
 
@@ -70,18 +71,18 @@
 
                 @foreach (DataRow row in Model.Rows)
                 {
-
+                 
                     <tr id="fila_@row["ID"]">
-                        <td>@row["ID"]</td>
+                       
 
-                        <td>@row["Nombre"]</td>
-                        <td><input class="form-control" value="@row["Nombre"]" /></td>
-                        <td> <button type="submit" data-toggle="modal" data-target="#Editar" class="btn btn-danger"><i class=""></i></button></td>
+                        <td><input disabled="disabled" class="form-control" id="id" value="@row["ID"]" /></td>
+                        <td><input class="form-control" id="Nombre" value="@row["Nombre"]" /></td>
+                        <td> <button type="submit" data-id="@row["ID"]" data-toggle="modal" data-target="#Editar"  class="button-Editar" ><i class=""></i></button></td>
                         <td>
                             @using (Ajax.BeginForm("Eliminar_Datos_Ing", "Admin_principal_", new { id = @row["ID"] }, new AjaxOptions() { HttpMethod = "POST" }))
                             {
                                 @Html.AntiForgeryToken()
-                                <button type="submit" class="btn btn-danger">X</button>
+                                <button type="submit" class="button-Eliminar"></button>
                             }
 
                         </td>
@@ -95,7 +96,12 @@
         </table>
     </div>
 </div>
-
+<script>
+    $(document).on("click", ".open-Modal", function () {
+        var myDNI = $(this).data('id');
+        $(".modal-body #txtNombre").val(myDNI);
+    });
+</script>
 <!--Modal-->
 @using (Ajax.BeginForm("Agregar_ingredientes", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
 { @Html.AntiForgeryToken()
@@ -113,7 +119,7 @@
                     <form>
                         <div class="form-group">
                             <label for="recipient-name " class="col-form-label"></label>
-                            <input type="text" name="Nombre" class="form-control" required="required" placeholder="Ingrese ingrediente" id="recipient-name">
+                            <input type="text" name="Nombre" class="form-control" required="required" placeholder="Ingrese ingrediente" >
                         </div>
 
                     </form>
@@ -146,7 +152,9 @@
                     <form>
                         <div class="form-group">
                             <label for="recipient-name " class="col-form-label"></label>
-                            <input type="text" name="Nombre" class="form-control" required="required" placeholder="Actualizar Ingrediente" id="recipient-name" />
+                            <input type="text" name="Nombre" class="form-control" required="required" placeholder="ID" id="txtId" />
+
+                            <input type="text" name="Nombre" class="form-control" required="required" placeholder="Actualizar Ingrediente" id="txtNombre" />
                         </div>
 
                     </form>
