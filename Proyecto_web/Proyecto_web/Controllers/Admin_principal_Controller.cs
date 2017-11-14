@@ -9,13 +9,19 @@ namespace Proyecto_web.Controllers
 {
     public class Admin_principal_Controller : Controller
     {
+
+        IngredientesModal Objeto_INgrediente = new IngredientesModal();
+
         // GET: Admin_principal_
         public ActionResult Admin_Principal()
         {
+
             return View();
         }
 
-        public ActionResult Agregar_Ingrediente()
+       
+
+        public ActionResult Inicio_Admin()
         {
             return View();
         }
@@ -68,14 +74,137 @@ namespace Proyecto_web.Controllers
             Agregar_Enfermedad();
             return View("Agregar_Enfermedad");
         }
-        public ActionResult AgregarMedida(string Medida)
+
+        public ActionResult AgregarMedida()
         {
-            IngredientesModal Obj = new IngredientesModal();
+            MedidasModal Obj = new MedidasModal();
+
+            return View(Obj.Tabla_Medidas_BD());
+        }
+
+        public ActionResult AgregarMed(string Medida)
+        {
+            MedidasModal Obj = new MedidasModal();
             BO_Admin.MedidasBO obj = new BO_Admin.MedidasBO();
             obj.Medida = Medida;
             Obj.AgregarMedidas(obj);
+            AgregarMedida();
             return View("AgregarMedida");
         }
+
+        public ActionResult Actualizar_Medida(string id)
+        {
+            MedidasModal Obj = new MedidasModal();
+            int Clave = int.Parse(id);
+            return View(Obj.Obtener_Medidas(Clave));
+        }
+
+        public ActionResult Actualizar_Datos_Med(int id, string Nombre)
+        {
+            MedidasModal Obj = new MedidasModal();
+            BO_Admin.MedidasBO obj = new BO_Admin.MedidasBO();
+            obj.ID_medida = id;
+            obj.Medida = Nombre;
+            Obj.MedidasActualizar(obj);
+            AgregarMedida();
+            return View("AgregarMedida");
+        }
+
+        public ActionResult Eliminar_Datos_Med(MedidasBO obj)
+        {
+            MedidasModal Obj = new MedidasModal();
+            Obj.EliminarMedidas(obj);
+            AgregarMedida();
+            return View("AgregarMedida");
+        }
+
+        public ActionResult AgregarClasificacion()
+        {
+            ClasificacionModal ObjC = new ClasificacionModal();
+
+            return View(ObjC.Tabla_Clasificacion_BD());
+        }
+
+        public ActionResult AgregarClas(string Clasificacion)
+        {
+            ClasificacionModal ObjC = new ClasificacionModal();
+            BO_Admin.ClasificaciónComidasBO objC = new BO_Admin.ClasificaciónComidasBO();
+            objC.Clasificaion = Clasificacion;
+            ObjC.AgregarClasificacion(objC);
+            AgregarClasificacion();
+            return View("AgregarClasificacion");
+        }
+
+        public ActionResult Actualizar_Clasificacion(string id)
+        {
+            ClasificacionModal ObjC = new ClasificacionModal();
+            int Clave = int.Parse(id);
+            return View(ObjC.Obtener_Clasificacion(Clave));
+        }
+
+        public ActionResult Actualizar_Datos_Clas(int id, string Clasificacion)
+        {
+            ClasificacionModal ObjC = new ClasificacionModal();
+            BO_Admin.ClasificaciónComidasBO objC = new BO_Admin.ClasificaciónComidasBO();
+            objC.id_cla = id;
+            objC.Clasificaion = Clasificacion;
+            ObjC.CladificacionActualizar(objC);
+            AgregarClasificacion();
+            return View("AgregarClasificacion");
+        }
+
+        public ActionResult Eliminar_Datos_Clas(ClasificaciónComidasBO objC)
+        {
+            ClasificacionModal ObjC = new ClasificacionModal();
+            ObjC.EliminarClasificacion(objC);
+            AgregarClasificacion();
+            return View("AgregarClasificacion");
+        }
+
+
+        public ActionResult Agregar_Ingrediente()
+        {
+            IngredientesModal ObjI = new IngredientesModal();
+            return View(ObjI.TablaINgredientes());
+        }
+
+        public ActionResult Agregar_ingredientes(string  Nombre)
+        {
+            IngredientesModal ObjI = new IngredientesModal();
+            BO_Admin.IngredientesBo objI = new BO_Admin.IngredientesBo();
+            objI.Nombre = Nombre;
+            ObjI.AgregarIngrediente(objI);
+            Agregar_Ingrediente();
+            return View("Agregar_Ingrediente"); 
+        }
+
+        public ActionResult Actualizar_Ingredientes(string id)
+        {
+            IngredientesModal ObjI = new IngredientesModal();
+            int Clave = int.Parse(id);
+            return View(ObjI.ObtenerIngredientes(Clave));
+        }
+
+        public ActionResult Actualizar_Datos_Ing(int ID_ing, string Nombre)
+        {
+            IngredientesModal ObjI = new IngredientesModal();
+            BO_Admin.IngredientesBo objI = new BO_Admin.IngredientesBo();
+            objI.id = ID_ing;
+            objI.Nombre = Nombre;
+            ObjI.ActualizarrIngrediente(objI);
+            Agregar_Ingrediente();
+            return View("Agregar_Ingrediente");
+        }
+
+        public ActionResult Eliminar_Datos_Ing(IngredientesBo objI)
+        {
+            IngredientesModal ObjI = new IngredientesModal();
+            ObjI.EliminarIngrediente(objI);
+            Agregar_Ingrediente();
+            return View("Agregar_ingrediente");
+        }
+
+
 
     }
 }

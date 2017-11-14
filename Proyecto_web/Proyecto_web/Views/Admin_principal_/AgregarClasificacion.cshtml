@@ -1,6 +1,6 @@
 ﻿@using System.Data
 @{
-    ViewBag.Title = "AgregarMedida";
+    ViewBag.Title = "AgregarClasificacion";
     Layout = "~/Views/Admin_principal_/Admin_Principal.cshtml";
 }
 
@@ -11,12 +11,11 @@
 <link href="~/Scripts/animate.css" rel="stylesheet" />
 
 
-
 <div class="clearfix"> </div>
 
 <div class="x_panel">
     <div class="x_title">
-        <h2>Agregar Medidas </h2>
+        <h2>Agregar Clasificaciones de Comidas </h2>
         <ul class="nav navbar-right panel_toolbox">
             <li>
                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -30,15 +29,16 @@
     </div>
     <div class="x_content">
 
-        <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-danger"> Agregar medidas</button>
+        <button data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-danger"> Agregar clasificaciones</button>
     </div>
 </div>
+
 
 <div class="clearfix"> </div>
 
 <div class="x_panel">
     <div class="x_title">
-        <h2>Lista de Medidas </h2>
+        <h2>Lista de Clasificaciones de Comidas </h2>
         <ul class="nav navbar-right panel_toolbox">
             <li>
                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -67,14 +67,14 @@
                 @foreach (DataRow row in Model.Rows)
                 {
 
-                    <tr id="fila_@row["ID_Tipo_Medida"]">
-                        <td>@row["ID_Tipo_Medida"]</td>
+                    <tr id="fila_@row["ID_clasificacion"]">
+                        <td>@row["ID_clasificacion"]</td>
 
-                        <td>@row["Medida"]</td>
-                        <td><input class="form-control" value="@row["Medida"]" /></td>
+                        <td>@row["Nombre"]</td>
+                        <td><input class="form-control" value="@row["Nombre"]" /></td>
                         <td> <button type="submit" data-toggle="modal" data-target="#Editar" class="btn btn-success">✓</button></td>
                         <td>
-                            @using (Ajax.BeginForm("Eliminar_Datos_Med", "Admin_principal_", new { id_medida = @row["ID_Tipo_Medida"] }, new AjaxOptions() { HttpMethod = "POST" }))
+                            @using (Ajax.BeginForm("Eliminar_Datos_Clas", "Admin_principal_", new { id_cla = @row["ID_clasificacion"] }, new AjaxOptions() { HttpMethod = "POST" }))
                             {
                                 @Html.AntiForgeryToken()
                                 <button type="submit" class="btn btn-danger">X</button>
@@ -94,13 +94,13 @@
 
 
 <!--Modal-->
-@using (Ajax.BeginForm("AgregarMed", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
+@using (Ajax.BeginForm("AgregarClas", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
 { @Html.AntiForgeryToken()
     <div class="fade animated modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="exampleModalLabel">Agregar medida</h2>
+                    <h2 class="modal-title" id="exampleModalLabel">Agregar Clasificacion</h2>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -110,7 +110,7 @@
                     <form>
                         <div class="form-group">
                             <label for="recipient-name " class="col-form-label"></label>
-                            <input type="text" name="Medida" class="form-control" required="required" placeholder="Ingrese medida" id="recipient-name">
+                            <input type="text" name="Clasificacion" class="form-control" required="required" placeholder="Ingrese clasificacion" id="recipient-name">
                         </div>
 
                     </form>
@@ -125,14 +125,14 @@
 }
 
 
-@using (Ajax.BeginForm("Actualizar_Datos_Med", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
+@using (Ajax.BeginForm("Actualizar_Datos_Clas", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
 {
 
     <div class="modal fade" id="Editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h2 class="modal-title" id="exampleModalLabel">Agregar medida</h2>
+                    <h2 class="modal-title" id="exampleModalLabel">Agregar Clasificacion</h2>
 
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -142,7 +142,7 @@
                     <form>
                         <div class="form-group">
                             <label for="recipient-name " class="col-form-label"></label>
-                            <input type="text" name="Medida" class="form-control" required="required" placeholder="Actualizar medida" id="recipient-name" />
+                            <input type="text" name="Clasificacion" class="form-control" required="required" placeholder="Actualizar medida" id="recipient-name" />
                         </div>
 
                     </form>

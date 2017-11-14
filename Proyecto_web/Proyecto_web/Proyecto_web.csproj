@@ -4604,6 +4604,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BO_Admin\ClasificaciónComidasBO.cs" />
     <Compile Include="BO_Admin\EnfermedadBO.cs" />
     <Compile Include="BO_Admin\IngredientesBo.cs" />
     <Compile Include="BO_Admin\MedidasBO.cs" />
@@ -4615,10 +4616,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClasificacionModal.cs" />
     <Compile Include="Models\ConneccionBD_Modal.cs" />
     <Compile Include="Models\EnfermedadesModal.cs" />
     <Compile Include="Models\EnviarEmail.cs" />
     <Compile Include="Models\IngredientesModal.cs" />
+    <Compile Include="Models\MedidasModal.cs" />
     <Compile Include="Models\UsuarioModal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -4735,8 +4738,11 @@
     <Content Include="Views\Inicio_Principal_\RegistroLogin.cshtml" />
     <Content Include="Views\Usuario\Principal_Usuario.cshtml" />
     <Content Include="Views\Admin_principal_\Admin_Principal.cshtml" />
-    <Content Include="Views\Admin_principal_\AgregarMedida.cshtml" />
     <Content Include="Views\Admin_principal_\Agregar_Enfermedad.cshtml" />
+    <Content Include="Views\Admin_principal_\Inicio_Admin.cshtml" />
+    <Content Include="Views\Admin_principal_\AgregarMedida.cshtml" />
+    <Content Include="Views\Admin_principal_\AgregarClasificacion.cshtml" />
+    <Content Include="Views\Admin_principal_\Agregar_Ingrediente.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

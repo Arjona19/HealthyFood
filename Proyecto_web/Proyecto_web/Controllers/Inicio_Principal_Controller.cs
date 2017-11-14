@@ -25,7 +25,11 @@ namespace Proyecto_web.Controllers
             ViewBag.ID = ID; 
             return View(ViewBag.showSuccessAlert = true);
         }
-
+        public ActionResult Incio_Admin()
+        {
+            ViewBag.ID = ID;
+            return View("Incio_Admin");
+        }
         public ActionResult  Login()
         {
 
@@ -64,16 +68,10 @@ namespace Proyecto_web.Controllers
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             ViewBag.Data = dt;
-            sda.Fill(dt);
+            sda.Fill(dt);    
             if (dt.Rows.Count == 1)
             {
-                
-            }
-
-            
-            if (dt.Rows.Count == 1)
-            {
-                ID = 1;
+           
                 if(dt.Rows[0][1].ToString() == "1")
                 {
 
@@ -81,7 +79,7 @@ namespace Proyecto_web.Controllers
 
                     
 
-                    return View("~/Views/Admin_principal_/Admin_Principal.cshtml");
+                    return View("~/Views/Admin_principal_/Inicio_Admin.cshtml");
                 }
                 else if(dt.Rows[0][1].ToString() == "2")
                 {
