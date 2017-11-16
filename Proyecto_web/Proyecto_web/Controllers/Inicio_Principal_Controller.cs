@@ -16,17 +16,23 @@ namespace Proyecto_web.Controllers
     public class Inicio_Principal_Controller : Controller
     {
         UsuarioModal Obj = new UsuarioModal();
+        UsuarioLoginBO Obj_Bo = new UsuarioLoginBO();
+     
+
+
         int ID;
      string Contraseña;
 
         // GET: Inicio_Principal_
         public ActionResult Index()
         {
+            
             ViewBag.ID = ID; 
-            return View(ViewBag.showSuccessAlert = true);
+            return View();
         }
         public ActionResult Incio_Admin()
         {
+
             ViewBag.ID = ID;
             return View("Incio_Admin");
         }
@@ -35,6 +41,8 @@ namespace Proyecto_web.Controllers
 
             ViewBag.ID = ID;
             ViewBag.Reg = ID;
+           
+
           
             return View(/*ViewBag.showSuccessAlert=true*/);
         }
@@ -60,26 +68,30 @@ namespace Proyecto_web.Controllers
         [HttpPost]
         public ActionResult Loguearse(string Nombre_Usuario, string Contraseña)
         {
-            
+
+            string id = "";
+               
             AbrirConexion();
-            SqlCommand cmd = new SqlCommand("SELECT Nombre_Usuario, ID_Tipo  FROM Usuarios WHERE Nombre_Usuario = @Nombre_Usuario AND Contraseña = @Contraseña", con);
+            SqlCommand cmd = new SqlCommand("SELECT Nombre_Usuario, ID_Tipo FROM Usuarios WHERE Nombre_Usuario = @Nombre_Usuario AND Contraseña = @Contraseña", con);
             cmd.Parameters.AddWithValue("Nombre_Usuario", Nombre_Usuario);
             cmd.Parameters.AddWithValue("Contraseña", Contraseña);
+            cmd.Parameters.AddWithValue("ID", id);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             ViewBag.Data = dt;
-            sda.Fill(dt);    
+            sda.Fill(dt);
+
+            Session["Nombre_Admin"] = Nombre_Usuario;
+            Session["Id_Admin"] = id;
+
             if (dt.Rows.Count == 1)
             {
            
                 if(dt.Rows[0][1].ToString() == "1")
                 {
-
                     ID = 1;
-
-                    
-
-                    return View("~/Views/Admin_principal_/Inicio_Admin.cshtml");
+                    Response.Redirect("http://localhost:58232/Admin_Principal_/Inicio_Admin");
+                   
                 }
                 else if(dt.Rows[0][1].ToString() == "2")
                 {

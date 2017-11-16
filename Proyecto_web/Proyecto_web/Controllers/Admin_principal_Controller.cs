@@ -5,17 +5,23 @@ using System.Web;
 using System.Web.Mvc;
 using Proyecto_web.Models;
 using Proyecto_web.BO_Admin;
+using System.Data.SqlClient;
+
 namespace Proyecto_web.Controllers
 {
     public class Admin_principal_Controller : Controller
     {
 
         IngredientesModal Objeto_INgrediente = new IngredientesModal();
-
+        string Nombre;
         // GET: Admin_principal_
         public ActionResult Admin_Principal()
         {
-
+            if (Session["Id_Admin"]== null)
+            {
+                ViewBag.Id =null;
+                Response.Redirect("http://localhost:58232/Inicio_principal_/Login");
+            }
             return View();
         }
 
@@ -26,16 +32,29 @@ namespace Proyecto_web.Controllers
             return View();
         }
 
-        public ActionResult Consultar()
+        public ActionResult Consultar( EnfermedadBO obj)
         {
-            EnfermedadesModal enfM = new EnfermedadesModal();
+            int id = obj.id;
+            ConneccionBD_Modal con = new ConneccionBD_Modal();
+            SqlCommand cmd = new SqlCommand("Select Nombre from Enfermedades where ID_enfermedad ='"+id+"' ", con.ConectarBD());
+            con.AbrirConexion();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read() == true)
+            {
+                Nombre = dr["Nombre"].ToString();
+            }
+            Agregar_Enfermedad();
+     
 
-            return View();
+
+            return View("Agregar_Enfermedad");
         }
 
         public ActionResult Agregar_Enfermedad()
         {
             EnfermedadesModal enfM = new EnfermedadesModal();
+            
+            ViewBag.Nombre = Nombre;
 
             return View(enfM.Tabla_Enfermedad_BD());
         }
@@ -204,6 +223,21 @@ namespace Proyecto_web.Controllers
             return View("Agregar_ingrediente");
         }
 
+        public ActionResult Perfil_Admin()
+        {
+
+            return View();
+        }
+
+        public ActionResult Cerrar_session()
+        {
+            
+                Session.Remove("Id_Admin");
+              Response.Redirect("http://localhost:58232/Inicio_principal_/Login");
+            
+
+            return View();
+        }
 
 
     }

@@ -34,6 +34,44 @@
 </div>
 
 
+
+
+<div class="clearfix"> </div>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Clasificaciones de comidas </h2>
+        <ul class="nav navbar-right panel_toolbox">
+            <li>
+               
+            </li>
+
+            <li>
+
+            </li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <table>
+            <td> <input class="form-control" value="Nombre" type="text" /> </td>
+            <td></td>
+            <td>
+                <button class="btn btn-outline-danger"> Actualizar Clasificación</button>
+            </td>
+        </table>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
 <div class="clearfix"> </div>
 
 <div class="x_panel">
@@ -41,7 +79,7 @@
         <h2>Lista de Clasificaciones de Comidas </h2>
         <ul class="nav navbar-right panel_toolbox">
             <li>
-                <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+               
             </li>
 
             <li>
@@ -56,11 +94,9 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
                     <th>Nombre</th>
-                    <th>Editar</th>
                     <th>Actualizar</th>
-                    <th colspan="2">Eliminar</th>
+                    <th>Eliminar</th>
                 </tr>
             <tbody>
 
@@ -68,11 +104,11 @@
                 {
 
                     <tr id="fila_@row["ID_clasificacion"]">
-                        <td>@row["ID_clasificacion"]</td>
+                  
 
                         <td>@row["Nombre"]</td>
-                        <td><input class="form-control" value="@row["Nombre"]" /></td>
-                        <td> <button type="submit" data-toggle="modal" data-target="#Editar" class="btn btn-success">✓</button></td>
+                       
+                        <td> <button type="submit"  class="btn btn-success">✓</button></td>
                         <td>
                             @using (Ajax.BeginForm("Eliminar_Datos_Clas", "Admin_principal_", new { id_cla = @row["ID_clasificacion"] }, new AjaxOptions() { HttpMethod = "POST" }))
                             {

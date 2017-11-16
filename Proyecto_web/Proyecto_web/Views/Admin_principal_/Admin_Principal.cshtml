@@ -50,6 +50,9 @@
 
 </head>
 <body  class="nav-md">
+
+
+    @Session["Id_Admin"]
         <div class="container body">
             <div class="main_container">
                 <div class="col-md-3 left_col">
@@ -155,7 +158,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="~/styles/Admin/img/img.jpg" alt="">John Doe
+                                        <img src="~/styles/Admin/img/img.jpg" alt="">@Session["Nombre_Admin"]
                                         <span class=" fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -167,7 +170,7 @@
                                             </a>
                                         </li>
                                         <li><a href="javascript:;">Informacion</a></li>
-                                        <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Cerrar sesion</a></li>
+                                        <li>@Html.ActionLink("Cerrar sesion","Cerrar_session", "Admin_principal_")</li>
                                     </ul>
                                 </li>
 

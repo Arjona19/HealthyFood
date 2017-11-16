@@ -7,7 +7,7 @@ namespace Proyecto_web.BO_Usuario
 {
     public class UsuarioLoginBO
     {
-
+        public int Id { get; set; }
         public string Nombre_Usuario { get; set; }
         public string Contraseña { get; set; }
 

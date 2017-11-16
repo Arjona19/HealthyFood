@@ -125,14 +125,14 @@
         </script>
         }
    
-        @*@if (ViewBag.Reg == null)
+        @if (ViewBag.Id == null)
         {
             <script type="text/javascript">
             window.onload = function () {
-                swal('Te has registrado!', 'Ahora inicia sesion para empezar!', 'success')
+                swal('No has inciado sesion', 'Ahora inicia sesion para empezar!', 'warning')
             }
             </script>
-        }*@
+        }
     
 
 </body>

@@ -9,12 +9,13 @@ body {
   height: 35px;
   background-color: #26a860;
   
-  position: relative;
-  left: 50%;
-  top: 50%;
+      position: relative;
+    left: 80px;
+    top: 12px;
   transform: translate(-50%, -50%);
   border-radius: 100px;
   border: 0px;
+  border:0px;
   overflow: hidden;
   cursor: pointer;
   color: #fff;
