@@ -17,11 +17,7 @@ namespace Proyecto_web.Controllers
         // GET: Admin_principal_
         public ActionResult Admin_Principal()
         {
-            if (Session["Id_Admin"]== null)
-            {
-                ViewBag.Id =null;
-                Response.Redirect("http://localhost:58232/Inicio_principal_/Login");
-            }
+           
             return View();
         }
 
@@ -41,6 +37,7 @@ namespace Proyecto_web.Controllers
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read() == true)
             {
+
                 Nombre = dr["Nombre"].ToString();
             }
             Agregar_Enfermedad();
@@ -55,7 +52,7 @@ namespace Proyecto_web.Controllers
             EnfermedadesModal enfM = new EnfermedadesModal();
             
             ViewBag.Nombre = Nombre;
-
+            
             return View(enfM.Tabla_Enfermedad_BD());
         }
         public ActionResult AgregarEnfe(string Nombre)
@@ -67,6 +64,10 @@ namespace Proyecto_web.Controllers
             Agregar_Enfermedad();
             return View("Agregar_Enfermedad");
         }
+
+
+
+
         public ActionResult Actualizar_Enfermedad(EnfermedadBO Obj_Enfermedad)
         {
             EnfermedadesModal Objeto_Enfermedad = new EnfermedadesModal();
@@ -97,9 +98,29 @@ namespace Proyecto_web.Controllers
         public ActionResult AgregarMedida()
         {
             MedidasModal Obj = new MedidasModal();
-
+            ViewBag.Nombre = Nombre;
             return View(Obj.Tabla_Medidas_BD());
         }
+
+        public ActionResult Consulta_Medida(MedidasBO obj)
+        {
+            int id = obj.ID_medida;
+            ConneccionBD_Modal con = new ConneccionBD_Modal();
+            SqlCommand cmd = new SqlCommand("Select Medida from Medidas where ID_Tipo_Medida ='" + id + "' ", con.ConectarBD());
+            con.AbrirConexion();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read() == true)
+            {
+                Nombre = dr["Medida"].ToString();
+            }
+            AgregarMedida();
+
+
+
+            return View("AgregarMedida");
+        }
+
+
 
         public ActionResult AgregarMed(string Medida)
         {
@@ -110,6 +131,26 @@ namespace Proyecto_web.Controllers
             AgregarMedida();
             return View("AgregarMedida");
         }
+
+
+        public ActionResult Consulta_Clasificacion(ClasificaciónComidasBO obj)
+        {
+            int id = obj.id_cla;
+            ConneccionBD_Modal con = new ConneccionBD_Modal();
+            SqlCommand cmd = new SqlCommand("Select Nombre from Clasificacion Where ID_clasificacion = '" + id + "' ", con.ConectarBD());
+            con.AbrirConexion();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read() == true)
+            {
+                Nombre = dr["Nombre"].ToString();
+            }
+            AgregarClasificacion();
+
+
+
+            return View("AgregarClasificacion");
+        }
+
 
         public ActionResult Actualizar_Medida(string id)
         {
@@ -140,10 +181,27 @@ namespace Proyecto_web.Controllers
         public ActionResult AgregarClasificacion()
         {
             ClasificacionModal ObjC = new ClasificacionModal();
-
+            ViewBag.Nombre = Nombre;
             return View(ObjC.Tabla_Clasificacion_BD());
         }
 
+        public ActionResult Consulta_Ingrediente(IngredientesBo obj)
+        {
+            int id = obj.id;
+            ConneccionBD_Modal con = new ConneccionBD_Modal();
+            SqlCommand cmd = new SqlCommand("Select Nombre from Ingredientes Where ID = '" + id + "' ", con.ConectarBD());
+            con.AbrirConexion();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read() == true)
+            {
+                Nombre = dr["Nombre"].ToString();
+            }
+            Agregar_Ingrediente();
+
+
+
+            return View("Agregar_Ingrediente");
+        }
         public ActionResult AgregarClas(string Clasificacion)
         {
             ClasificacionModal ObjC = new ClasificacionModal();
@@ -184,6 +242,7 @@ namespace Proyecto_web.Controllers
         public ActionResult Agregar_Ingrediente()
         {
             IngredientesModal ObjI = new IngredientesModal();
+            ViewBag.Nombre = Nombre;
             return View(ObjI.TablaINgredientes());
         }
 
@@ -204,11 +263,13 @@ namespace Proyecto_web.Controllers
             return View(ObjI.ObtenerIngredientes(Clave));
         }
 
-        public ActionResult Actualizar_Datos_Ing(int ID_ing, string Nombre)
+        public ActionResult Actualizar_Datos_Ing()
         {
+            string id;
             IngredientesModal ObjI = new IngredientesModal();
             BO_Admin.IngredientesBo objI = new BO_Admin.IngredientesBo();
-            objI.id = ID_ing;
+            Nombre = ViewBag.Nombre;
+            id = ViewBag.Id;
             objI.Nombre = Nombre;
             ObjI.ActualizarrIngrediente(objI);
             Agregar_Ingrediente();

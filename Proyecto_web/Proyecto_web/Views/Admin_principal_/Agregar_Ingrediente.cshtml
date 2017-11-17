@@ -55,15 +55,18 @@
         <div class="clearfix"></div>
     </div>
     <div class="x_content">
-        <table>
-            <td> <input class="form-control" value="Nombre" type="text" /> </td>
+    @using (Ajax.BeginForm("Actualizar_Datos_Ing", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
+    {
+            <table>
+
+            <td> <input class="form-control" value="@ViewBag.Nombre" type="text" /> </td>
             <td></td>
             <td>
-                <button class="btn btn-outline-danger"> Actualizar Ingrediente</button>
+ <button class="btn btn-outline-danger"> Actualizar Ingrediente</button>
             </td>
         </table>
 
-
+}
 
     </div>
 </div>
@@ -115,7 +118,10 @@
 
                        
                         <td>@row["Nombre"]</td>
-                        <td> <button type="submit" class="btn btn-success">✓</button></td>
+                        <td>
+                            @using (Ajax.BeginForm("Consulta_Ingrediente", "Admin_principal_", new { id = @row["ID"] }, new AjaxOptions() { HttpMethod = "POST" }))
+                            {@Html.AntiForgeryToken()  <button type="submit" class="btn btn-success">✓</button>}
+                        </td>
                         <td>
                             @using (Ajax.BeginForm("Eliminar_Datos_Ing", "Admin_principal_", new { id = @row["ID"] }, new AjaxOptions() { HttpMethod = "POST" }))
                             {

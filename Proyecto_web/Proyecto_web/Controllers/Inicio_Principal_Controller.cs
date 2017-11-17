@@ -90,8 +90,8 @@ namespace Proyecto_web.Controllers
                 if(dt.Rows[0][1].ToString() == "1")
                 {
                     ID = 1;
-                    Response.Redirect("http://localhost:58232/Admin_Principal_/Inicio_Admin");
-                   
+                    return View("~/Views/Admin_principal_/Inicio_Admin.cshtml");
+
                 }
                 else if(dt.Rows[0][1].ToString() == "2")
                 {
@@ -162,7 +162,10 @@ namespace Proyecto_web.Controllers
 
 
         //***************************************************************************************************************************
-
+        public ActionResult Error403()
+        {
+            return View();
+        }
 
 
 

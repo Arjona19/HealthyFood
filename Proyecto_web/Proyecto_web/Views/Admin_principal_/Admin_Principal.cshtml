@@ -31,16 +31,13 @@
 
     <!-- Custom Theme Style -->
     <link href="~/Conten_admin/build/css/custom.min.css" rel="stylesheet" />
-   
- @if (ViewBag.ID == null)
- {
-    <script type="text/javascript">
-            window.onload = function () {
-                swal('Felicidades','Ha iniciado sesion','success')
-            }
-    </script>
- }
 
+
+    @if(Session["Id_Admin"] == null)
+            {
+                ViewBag.Id = null;
+               RedirectResult("Error403", "Inicio_Principal_");
+            }
 
 
 

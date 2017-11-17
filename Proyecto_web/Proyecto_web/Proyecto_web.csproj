@@ -4747,6 +4747,7 @@
     <Content Include="Views\Admin_principal_\AgregarClasificacion.cshtml" />
     <Content Include="Views\Admin_principal_\Agregar_Ingrediente.cshtml" />
     <Content Include="Views\Admin_principal_\Perfil_Admin.cshtml" />
+    <Content Include="Views\Inicio_Principal_\Error403.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

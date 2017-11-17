@@ -4,5 +4,118 @@
     Layout = "~/Views/Admin_principal_/Admin_Principal.cshtml";
 }
 
-<h2>Perfil_Admin</h2>
 
+<!DOCTYPE html>
+
+<html>
+<head>
+
+</head>
+
+<body>
+
+
+
+    <h1>Mi Perfil</h1>
+    <p></p>
+    <p></p>
+    <div class="row">
+        <div class="col-sm-4  widget widget_tally_box">
+            <div class="x_panel fixed_height_390">
+                <div class="x_content">
+
+                    <div class="flex">
+                        <ul class="list-inline widget_profile_box">
+                            <li>
+                                <a>
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <img src="~/Conten_admin/production/images/user.png" alt="..." class="img-circle profile_img">
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h3 class="name">@Session["Nombre_Admin"]</h3>
+
+                    <div class="flex">
+                        <ul class="list-inline count2">
+
+
+                            <table class="table-condensed">
+                                <tbody>
+                              
+                                     
+                                        <tr><th>Nombre : </th></tr>
+                                        <tr></tr>
+                                        <tr><th>Apellido : </th> </tr>
+                                        <tr></tr>
+                                        <tr><th>Email : </th></tr>
+                                        <tr></tr>
+                                        <tr><th>contraseña : </th></tr>
+
+                                    }
+                                    <tr>
+                                        <button type="button" class="btn btn-info btn-sm">Editar Perfil</button>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                    </div>
+                    <p>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-8 col-sm-8 col-xs-8" widget widget_tally_box">
+            <div class="x_panel fixed_height_390">
+                <div class="x_content">
+
+                    <div class="flex">
+
+                    </div>
+
+                    <h3 class="name">Editar Perfil</h3>
+
+                    <div class="flex">
+                        <ul class="list-inline count2">
+
+                            <table class="table-condensed">
+                                <tbody>
+                                    <tr><th>Nombre : </th> <td><input type="text" class="form-control"></td></tr>
+                                    <tr></tr>
+                                    <tr><th>Apellido : </th> <td> <input type="text" class="form-control"> </td> </tr>
+                                    <tr></tr>
+                                    <tr><th>Email :</th> <td> <input type="text" class="form-control"> </td></tr>
+                                    <tr></tr>
+                                    <tr><th>contraseña :</th> <td> <input type="text" class="form-control"> </td></tr>
+
+                                </tbody>
+                            </table>
+                        </ul>
+
+                    </div>
+                    <p>
+                        <button type="button" class="btn btn-info btn-sm">Guardar Datos</button>
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+
+
+</body>

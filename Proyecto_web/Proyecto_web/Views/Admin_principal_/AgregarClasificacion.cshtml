@@ -54,7 +54,7 @@
     </div>
     <div class="x_content">
         <table>
-            <td> <input class="form-control" value="Nombre" type="text" /> </td>
+            <td> <input class="form-control" value="@ViewBag.Nombre"" type="text" /> </td>
             <td></td>
             <td>
                 <button class="btn btn-outline-danger"> Actualizar Clasificación</button>
@@ -108,7 +108,10 @@
 
                         <td>@row["Nombre"]</td>
                        
-                        <td> <button type="submit"  class="btn btn-success">✓</button></td>
+                        <td>
+                            @using (Ajax.BeginForm("Consulta_Clasificacion", "Admin_principal_", new { id_cla = @row["ID_clasificacion"] }, new AjaxOptions() { HttpMethod = "POST" }))
+                            {@Html.AntiForgeryToken()  <button type="submit" class="btn btn-success">✓</button> }
+                        </td>
                         <td>
                             @using (Ajax.BeginForm("Eliminar_Datos_Clas", "Admin_principal_", new { id_cla = @row["ID_clasificacion"] }, new AjaxOptions() { HttpMethod = "POST" }))
                             {

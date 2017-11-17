@@ -5,7 +5,14 @@
 }
 
 
-
+@if (ViewBag.ID == null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                swal('Felicidades','Ha iniciado sesion','success')
+            }
+    </script>
+}
 <h1>Bienvenido Administrador</h1>
 
 
