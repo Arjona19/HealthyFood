@@ -1,0 +1,53 @@
+﻿
+    @using System.Data
+@{
+    ViewBag.Title = "Items";
+    Layout = "~/Views/Admin_principal_/Admin_Principal.cshtml";
+}
+
+<h2>Items</h2>
+<div class="x_content">
+
+    <div class="row">
+
+        <p>Media gallery design emelents</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </tr>
+            <tbody>
+
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <div class="col-md-55">
+                        <div class="thumbnail">
+                            <div class="image view view-first">
+                                <img style="width: 100%; display: block;" src="images/media.jpg" alt="image">
+                                <div class="mask">
+                                    <p>@row["Nombre"]</p>
+                                    <div class="tools tools-bottom">
+                                        <a href="#"><i class="fa fa-link"></i></a>
+                                        <a href="#"><i class="fa fa-pencil"></i></a>
+                                        <a href="#"><i class="fa fa-times"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="caption">
+                                <p>Snow and Ice Incoming for the South</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                }
+            </tbody>
+
+        </table>
+        
+
+    </div>
+</div>

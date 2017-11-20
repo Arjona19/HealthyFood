@@ -4762,6 +4762,7 @@
     <Content Include="Views\Admin_principal_\Perfil_Admin.cshtml" />
     <Content Include="Views\Inicio_Principal_\Error403.cshtml" />
     <Content Include="Views\Usuario\Inicio_Usuario.cshtml" />
+    <Content Include="Views\Admin_principal_\Items.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

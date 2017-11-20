@@ -23,8 +23,6 @@ namespace Proyecto_web.Controllers
             return View();
         }
 
-
-
         public ActionResult Inicio_Admin()
         {
             return View();
@@ -78,9 +76,6 @@ namespace Proyecto_web.Controllers
             return View("Agregar_Enfermedad");
         }
 
-
-
-
         public ActionResult Actualizar_Enfermedad(EnfermedadBO Obj_Enfermedad)
         {
             EnfermedadesModal Objeto_Enfermedad = new EnfermedadesModal();
@@ -117,9 +112,6 @@ namespace Proyecto_web.Controllers
 
         }
 
-
-
-
         public ActionResult Consulta_Medida(MedidasBO obj)
         {
             int id = obj.ID_medida;
@@ -139,8 +131,6 @@ namespace Proyecto_web.Controllers
             return View("AgregarMedida");
         }
 
-
-
         public ActionResult AgregarMed(string Medida)
         {
             MedidasModal Obj = new MedidasModal();
@@ -150,7 +140,6 @@ namespace Proyecto_web.Controllers
             AgregarMedida();
             return View("AgregarMedida");
         }
-
 
         public ActionResult Consulta_Clasificacion(ClasificaciónComidasBO obj)
         {
@@ -170,7 +159,6 @@ namespace Proyecto_web.Controllers
 
             return View("AgregarClasificacion");
         }
-
 
         public ActionResult Actualizar_Medida(string id)
         {
@@ -331,8 +319,6 @@ namespace Proyecto_web.Controllers
             return View("Agregar_Ingrediente");
         }
 
-
-
         public ActionResult Actualizar_Datos_perfil( string Nombre, string Apellido, string Email, string Contraseña)
         {
             UsuarioModal Obj = new UsuarioModal();
@@ -347,7 +333,6 @@ namespace Proyecto_web.Controllers
             return View("Perfil_Admin");
         }
 
-
         public ActionResult Cerrar_session()
         {
             
@@ -357,7 +342,11 @@ namespace Proyecto_web.Controllers
 
             return View();
         }
+        
 
-
+        public ActionResult Items()
+        {
+            return View();
+        }
     }
 }

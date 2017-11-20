@@ -77,6 +77,7 @@ namespace Proyecto_web.Controllers
             AbrirConexion();
             SqlCommand cmd = new SqlCommand("SELECT  Nombre_Usuario, ID_Tipo, Apellido, Email, Contraseña, Nombre, ID FROM Usuarios WHERE Nombre_Usuario = @Nombre_Usuario AND Contraseña = @Contraseña", con);
             cmd.Parameters.AddWithValue("Nombre_Usuario", Nombre_Usuario);
+            cmd.Parameters.AddWithValue("Nombre", Nombre);
             cmd.Parameters.AddWithValue("Contraseña", Contraseña);
             cmd.Parameters.AddWithValue("ID", id);
             cmd.Parameters.AddWithValue("Email", email);
@@ -86,17 +87,18 @@ namespace Proyecto_web.Controllers
             ViewBag.Data = dt;
             sda.Fill(dt);
 
-     
+
 
 
             if (dt.Rows.Count == 1)
             {
                 Session["Nombre_Admin"] = Nombre_Usuario;
-            Session["Nombre_perfil"] = dt.Rows[0][5].ToString();
+                Session["Nombre_perfil"] = dt.Rows[0][5].ToString();
                 Session["Id_Admin"] = dt.Rows[0][6].ToString();
                 Session["Contraseña"] = Contraseña;
-            Session["Email"] = dt.Rows[0][3].ToString();
-            Session["Apellido"] = dt.Rows[0][2].ToString();
+                Session["Email"] = dt.Rows[0][3].ToString();
+                Session["Apellido"] = dt.Rows[0][2].ToString();
+                Session["Nombre"] = dt.Rows[0][1].ToString();
            
                 if(dt.Rows[0][1].ToString() == "1")
                 {
@@ -114,9 +116,9 @@ namespace Proyecto_web.Controllers
             
             }
             ViewBag.showSuccessAlert = false;
-                ViewBag.ID = null;
+                ViewBag.ID = null;          CerrarConexion();
             return View("Login");
-            CerrarConexion();
+  
 
 
 
