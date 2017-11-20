@@ -92,6 +92,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Load.css" />
     <Content Include="Conten_admin\.gitignore" />
     <Content Include="Conten_admin\build\css\custom.css" />
     <Content Include="Conten_admin\build\css\custom.min.css" />
@@ -106,6 +107,16 @@
     <Content Include="Conten_admin\build\js\custom.min.js" />
     <Content Include="Conten_admin\comida_saludable.jpg" />
     <Content Include="Conten_admin\gulpfile.js" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\bootstrap-colorpicker.min.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\bootstrap.min.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\cropper.min.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\custom.min.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\daterangepicker.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\font-awesome.min.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\ion.rangeSlider.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\ion.rangeSlider.skinFlat.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\normalize.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\nprogress.css" />
     <Content Include="Conten_admin\LICENSE.txt" />
     <Content Include="Conten_admin\production\calendar.html" />
     <Content Include="Conten_admin\production\chartjs.html" />
@@ -3691,6 +3702,8 @@
     <Content Include="Conten_Principal\css\EstiloPlus.css" />
     <Content Include="Conten_Principal\css\flexslider.css" />
     <Content Include="Conten_Principal\css\icomoon.css" />
+    <Content Include="Conten_Principal\css\ion.rangeSlider.css" />
+    <Content Include="Conten_Principal\css\ion.rangeSlider.skinFlat.css" />
     <Content Include="Conten_Principal\css\simple-line-icons.css" />
     <Content Include="Conten_Principal\css\style.css" />
     <Content Include="Conten_Principal\fonts\bootstrap\glyphicons-halflings-regular.svg" />
@@ -4748,6 +4761,7 @@
     <Content Include="Views\Admin_principal_\Agregar_Ingrediente.cshtml" />
     <Content Include="Views\Admin_principal_\Perfil_Admin.cshtml" />
     <Content Include="Views\Inicio_Principal_\Error403.cshtml" />
+    <Content Include="Views\Usuario\Inicio_Usuario.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

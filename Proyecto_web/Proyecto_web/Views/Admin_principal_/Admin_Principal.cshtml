@@ -5,11 +5,13 @@
 
 <!DOCTYPE html>
 
-<html>
+<html >
+
 <head>
+
     <meta name="viewport" content="width=device-width" />
   
-
+    <link href="~/Content/Load.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
     <title>_MasterAdmin</title>
     <!-- Bootstrap -->
@@ -34,10 +36,11 @@
 
 
     @if(Session["Id_Admin"] == null)
-            {
-                ViewBag.Id = null;
-               RedirectResult("Error403", "Inicio_Principal_");
-            }
+    {
+        ViewBag.Id = null;
+        Response.Redirect("~/Inicio_Principal_/Error403");
+
+    }
 
 
 
@@ -47,7 +50,7 @@
 
 </head>
 <body  class="nav-md">
-
+    
 
     @Session["Id_Admin"]
         <div class="container body">
@@ -297,7 +300,10 @@
         <!-- Custom Theme Scripts -->
         <script src="~/Conten_admin/build/js/custom.min.js"></script>
 
-
+    <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/easypiechart.js"></script>
+    <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/easypiechart.min.js"></script>
+    <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
+    <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
 
 
 

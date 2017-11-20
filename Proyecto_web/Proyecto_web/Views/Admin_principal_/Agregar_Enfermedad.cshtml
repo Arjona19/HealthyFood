@@ -60,11 +60,13 @@
     </div>
     <div class="x_content">
         <table>
-            <td> <input class="form-control" value="@ViewBag.Nombre" type="text" /> </td>
-            <td></td>
-            <td>
-                <button class="btn btn-outline-danger"> Actualizar Enfermedad</button>
-            </td>
+            @using (Ajax.BeginForm("Actualizar_Datos_Enfermedad", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
+            {
+                <td> <input class="form-control" name="Nombre" value="@ViewBag.Nombre" type="text" /> </td>
+                <td> <input name="id" style="visibility:hidden" value="@ViewBag.Id" /> </td>
+                <td>
+                    @Html.AntiForgeryToken() <button class="btn btn-outline-danger"> Actualizar Enfermedad</button>
+                </td>}
         </table>
 
 

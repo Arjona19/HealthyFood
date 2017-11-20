@@ -31,6 +31,13 @@ namespace Proyecto_web.Models
             return 1;
         }
 
+        public int Actualizad_admin(BO_Usuario.LoginBO obj)
+        {
+            string sql = "update  Usuarios set Nombre='" + obj.nombre + "', Apellido = '"+ obj.apellido + "',  Email = '"+ obj.Email+ "', Contraseña = '" + obj.contraseña + "'  where ID ='" + obj.id + "'";
+            return Conex.EjecutarComando(sql);
+        }
+
+
 
 
 

@@ -14,34 +14,36 @@ namespace Proyecto_web.Controllers
 
         IngredientesModal Objeto_INgrediente = new IngredientesModal();
         string Nombre;
+        string id_glo;
+
         // GET: Admin_principal_
         public ActionResult Admin_Principal()
         {
-           
+
             return View();
         }
 
-       
+
 
         public ActionResult Inicio_Admin()
         {
             return View();
         }
 
-        public ActionResult Consultar( EnfermedadBO obj)
+        public ActionResult Consultar(EnfermedadBO obj)
         {
             int id = obj.id;
             ConneccionBD_Modal con = new ConneccionBD_Modal();
-            SqlCommand cmd = new SqlCommand("Select Nombre from Enfermedades where ID_enfermedad ='"+id+"' ", con.ConectarBD());
+            SqlCommand cmd = new SqlCommand("Select Nombre,  ID_enfermedad  from Enfermedades where ID_enfermedad ='" + id + "' ", con.ConectarBD());
             con.AbrirConexion();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read() == true)
             {
-
+                id_glo = dr["ID_enfermedad"].ToString();
                 Nombre = dr["Nombre"].ToString();
             }
             Agregar_Enfermedad();
-     
+
 
 
             return View("Agregar_Enfermedad");
@@ -50,11 +52,22 @@ namespace Proyecto_web.Controllers
         public ActionResult Agregar_Enfermedad()
         {
             EnfermedadesModal enfM = new EnfermedadesModal();
-            
             ViewBag.Nombre = Nombre;
-            
+            ViewBag.Id = id_glo;
             return View(enfM.Tabla_Enfermedad_BD());
         }
+
+        public ActionResult Actualizar_Datos_Enfermedad(int id, string Nombre)
+        {
+            EnfermedadesModal Obj = new EnfermedadesModal();
+            BO_Admin.EnfermedadBO obj = new BO_Admin.EnfermedadBO();
+            obj.id = id;
+            obj.Nombre = Nombre;
+            Obj.EnfermedadActualizar(obj);
+            Agregar_Enfermedad();
+            return View("Agregar_Enfermedad");
+        }
+
         public ActionResult AgregarEnfe(string Nombre)
         {
             EnfermedadesModal enfM = new EnfermedadesModal();
@@ -99,19 +112,25 @@ namespace Proyecto_web.Controllers
         {
             MedidasModal Obj = new MedidasModal();
             ViewBag.Nombre = Nombre;
+            ViewBag.Id = id_glo;
             return View(Obj.Tabla_Medidas_BD());
+
         }
+
+
+
 
         public ActionResult Consulta_Medida(MedidasBO obj)
         {
             int id = obj.ID_medida;
             ConneccionBD_Modal con = new ConneccionBD_Modal();
-            SqlCommand cmd = new SqlCommand("Select Medida from Medidas where ID_Tipo_Medida ='" + id + "' ", con.ConectarBD());
+            SqlCommand cmd = new SqlCommand("Select Medida, ID_Tipo_Medida from Medidas where ID_Tipo_Medida ='" + id + "' ", con.ConectarBD());
             con.AbrirConexion();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read() == true)
             {
                 Nombre = dr["Medida"].ToString();
+                id_glo = dr["ID_Tipo_Medida"].ToString();
             }
             AgregarMedida();
 
@@ -137,12 +156,13 @@ namespace Proyecto_web.Controllers
         {
             int id = obj.id_cla;
             ConneccionBD_Modal con = new ConneccionBD_Modal();
-            SqlCommand cmd = new SqlCommand("Select Nombre from Clasificacion Where ID_clasificacion = '" + id + "' ", con.ConectarBD());
+            SqlCommand cmd = new SqlCommand("Select Nombre, ID_clasificacion from Clasificacion Where ID_clasificacion = '" + id + "' ", con.ConectarBD());
             con.AbrirConexion();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read() == true)
             {
                 Nombre = dr["Nombre"].ToString();
+                id_glo = dr["ID_clasificacion"].ToString();
             }
             AgregarClasificacion();
 
@@ -182,6 +202,7 @@ namespace Proyecto_web.Controllers
         {
             ClasificacionModal ObjC = new ClasificacionModal();
             ViewBag.Nombre = Nombre;
+            ViewBag.Id = id_glo;
             return View(ObjC.Tabla_Clasificacion_BD());
         }
 
@@ -189,12 +210,13 @@ namespace Proyecto_web.Controllers
         {
             int id = obj.id;
             ConneccionBD_Modal con = new ConneccionBD_Modal();
-            SqlCommand cmd = new SqlCommand("Select Nombre from Ingredientes Where ID = '" + id + "' ", con.ConectarBD());
+            SqlCommand cmd = new SqlCommand("Select Nombre, ID from Ingredientes Where ID = '" + id + "' ", con.ConectarBD());
             con.AbrirConexion();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read() == true)
             {
                 Nombre = dr["Nombre"].ToString();
+                id_glo = dr["ID"].ToString();
             }
             Agregar_Ingrediente();
 
@@ -219,12 +241,12 @@ namespace Proyecto_web.Controllers
             return View(ObjC.Obtener_Clasificacion(Clave));
         }
 
-        public ActionResult Actualizar_Datos_Clas(int id, string Clasificacion)
+        public ActionResult Actualizar_Datos_Clas(int id, string Nombre)
         {
             ClasificacionModal ObjC = new ClasificacionModal();
             BO_Admin.ClasificaciónComidasBO objC = new BO_Admin.ClasificaciónComidasBO();
             objC.id_cla = id;
-            objC.Clasificaion = Clasificacion;
+            objC.Clasificaion = Nombre;
             ObjC.CladificacionActualizar(objC);
             AgregarClasificacion();
             return View("AgregarClasificacion");
@@ -243,17 +265,18 @@ namespace Proyecto_web.Controllers
         {
             IngredientesModal ObjI = new IngredientesModal();
             ViewBag.Nombre = Nombre;
+            ViewBag.Id = id_glo;
             return View(ObjI.TablaINgredientes());
         }
 
-        public ActionResult Agregar_ingredientes(string  Nombre)
+        public ActionResult Agregar_ingredientes(string Nombre)
         {
             IngredientesModal ObjI = new IngredientesModal();
             BO_Admin.IngredientesBo objI = new BO_Admin.IngredientesBo();
             objI.Nombre = Nombre;
             ObjI.AgregarIngrediente(objI);
             Agregar_Ingrediente();
-            return View("Agregar_Ingrediente"); 
+            return View("Agregar_Ingrediente");
         }
 
         public ActionResult Actualizar_Ingredientes(string id)
@@ -263,15 +286,13 @@ namespace Proyecto_web.Controllers
             return View(ObjI.ObtenerIngredientes(Clave));
         }
 
-        public ActionResult Actualizar_Datos_Ing()
+        public ActionResult Actualizar_Datos_ingrediente(int id, string Nombre)
         {
-            string id;
-            IngredientesModal ObjI = new IngredientesModal();
-            BO_Admin.IngredientesBo objI = new BO_Admin.IngredientesBo();
-            Nombre = ViewBag.Nombre;
-            id = ViewBag.Id;
-            objI.Nombre = Nombre;
-            ObjI.ActualizarrIngrediente(objI);
+            IngredientesModal ObjC = new IngredientesModal();
+            BO_Admin.IngredientesBo objC = new BO_Admin.IngredientesBo();
+            objC.id = id;
+            objC.Nombre = Nombre;
+            ObjC.ActualizarrIngrediente(objC);
             Agregar_Ingrediente();
             return View("Agregar_Ingrediente");
         }
@@ -289,6 +310,43 @@ namespace Proyecto_web.Controllers
 
             return View();
         }
+
+        public ActionResult Consultar_Perfil_Admin(BO_Usuario.LoginBO obj)
+        {
+            int id = obj.id;
+               
+            ConneccionBD_Modal con = new ConneccionBD_Modal();
+            SqlCommand cmd = new SqlCommand("Select Nombre, ID, Apellido, Email, Contraseña from Usuarios Where ID = '" + id + "' ", con.ConectarBD());
+            con.AbrirConexion();
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.Read() == true)
+            {
+                Nombre = dr["Nombre"].ToString();
+                id_glo = dr["ID"].ToString();
+            }
+            Agregar_Ingrediente();
+
+
+
+            return View("Agregar_Ingrediente");
+        }
+
+
+
+        public ActionResult Actualizar_Datos_perfil( string Nombre, string Apellido, string Email, string Contraseña)
+        {
+            UsuarioModal Obj = new UsuarioModal();
+            BO_Usuario.LoginBO obj = new BO_Usuario.LoginBO();
+            obj.id = int.Parse(Session["Id_Admin"].ToString());
+            obj.apellido = Apellido;
+            obj.Email = Email;
+            obj.contraseña = Contraseña;
+            obj.nombre = Nombre;
+            Obj.Actualizad_admin(obj);
+         
+            return View("Perfil_Admin");
+        }
+
 
         public ActionResult Cerrar_session()
         {

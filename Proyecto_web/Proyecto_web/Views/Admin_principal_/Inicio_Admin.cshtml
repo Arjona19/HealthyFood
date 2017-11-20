@@ -4,7 +4,6 @@
     Layout = "~/Views/Admin_principal_/Admin_Principal.cshtml";
 }
 
-
 @if (ViewBag.ID == null)
 {
     <script type="text/javascript">
@@ -13,8 +12,12 @@
             }
     </script>
 }
+<div id="overlay">
+    <div class="spinner"></div>
+</div>
 <h1>Bienvenido Administrador</h1>
 
+<link href="~/Content/Load.css" rel="stylesheet" />
 
 <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
     <div class="tile-stats">
@@ -107,8 +110,15 @@
     </div>
 </div>
 
+<script>
+    var overlay = document.getElementById("overlay");
+
+    window.addEventListener('load', function () {
+        overlay.style.display = 'none';
+    })
+</script>
 
 
-<script data-rocketsrc="../Conten_admin\vendors\jquery-knob\dist\jquery.knob.min.js" type="text/rocketscript"></script>
+<script data-rocketsrc="../../Conten_admin\vendors\jquery-knob\dist\jquery.knob.min.js" type="text/rocketscript"></script>
 <!-- Bootstrap Colorpicker -->
-<script data-rocketsrc="../Conten_admin\vendors\mjolnic-bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" type="text/rocketscript"></script>
+<script data-rocketsrc="../../Conten_admin\vendors\mjolnic-bootstrap-colorpicker\dist\js\bootstrap-colorpicker.min.js" type="text/rocketscript"></script>
