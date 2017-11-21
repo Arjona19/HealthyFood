@@ -107,16 +107,7 @@
     <Content Include="Conten_admin\build\js\custom.min.js" />
     <Content Include="Conten_admin\comida_saludable.jpg" />
     <Content Include="Conten_admin\gulpfile.js" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\bootstrap-colorpicker.min.css" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\bootstrap.min.css" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\cropper.min.css" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\custom.min.css" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\daterangepicker.css" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\font-awesome.min.css" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\ion.rangeSlider.css" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\ion.rangeSlider.skinFlat.css" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\normalize.css" />
-    <Content Include="Conten_admin\Inicio_Admin_Recursos\nprogress.css" />
+    <Content Include="Conten_admin\Inicio_Admin_Recursos\Cards.css" />
     <Content Include="Conten_admin\LICENSE.txt" />
     <Content Include="Conten_admin\production\calendar.html" />
     <Content Include="Conten_admin\production\chartjs.html" />
@@ -3738,6 +3729,7 @@
     <Content Include="Conten_Principal\images\res_img_6.jpg" />
     <Content Include="Conten_Principal\images\res_img_7.jpg" />
     <Content Include="Conten_Principal\images\res_img_8.jpg" />
+    <Content Include="icono.ico" />
     <Content Include="Scripts\animate.css" />
     <Content Include="Scripts\btnAgregar.css" />
     <Content Include="Scripts\btnEditar.css" />
@@ -4621,6 +4613,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BO_Admin\ClasificaciónComidasBO.cs" />
+    <Compile Include="BO_Admin\ComidaBO.cs" />
     <Compile Include="BO_Admin\EnfermedadBO.cs" />
     <Compile Include="BO_Admin\IngredientesBo.cs" />
     <Compile Include="BO_Admin\MedidasBO.cs" />
@@ -4633,6 +4626,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClasificacionModal.cs" />
+    <Compile Include="Models\ComidasModal.cs" />
     <Compile Include="Models\ConneccionBD_Modal.cs" />
     <Compile Include="Models\EnfermedadesModal.cs" />
     <Compile Include="Models\EnviarEmail.cs" />
@@ -4763,6 +4757,8 @@
     <Content Include="Views\Inicio_Principal_\Error403.cshtml" />
     <Content Include="Views\Usuario\Inicio_Usuario.cshtml" />
     <Content Include="Views\Admin_principal_\Items.cshtml" />
+    <Content Include="Views\Admin_principal_\Aprobados.cshtml" />
+    <Content Include="Views\Admin_principal_\DesAprobados.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

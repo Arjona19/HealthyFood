@@ -14,6 +14,8 @@
     <link href="~/Content/Load.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
     <title>_MasterAdmin</title>
+    <link rel="icon" href="~/icono.ico" />
+
     <!-- Bootstrap -->
     <link href="~/Conten_admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
@@ -41,7 +43,7 @@
         Response.Redirect("~/Inicio_Principal_/Error403");
 
     }
-
+  
 
 
 
@@ -51,8 +53,7 @@
 </head>
 <body  class="nav-md">
     
-
-    @Session["Id_Admin"]
+      
         <div class="container body">
             <div class="main_container">
                 <div class="col-md-3 left_col">
@@ -91,8 +92,8 @@
                                     <li>
                                         <a><i class="fa fa-apple"></i> Comidas <span class="fa fa-chevron-down"></span></a>
                                         <ul class="nav child_menu">
-                                            <li><a href="form.html">Comidas aprobadas</a></li>
-                                            <li><a href="form_advanced.html">Comidas pendientes</a></li>
+                                            <li><a href="@Url.Action("Aprobados","Admin_principal_")">Comidas aprobadas</a></li>
+                                            <li><a href="@Url.Action("DesAprobados","Admin_principal_")">Comidas pendientes</a></li>
                                             <li><a href="@Url.Action("Agregar_Ingrediente","Admin_Principal_")">Ingredientes</a></li>
                                         </ul>
                                     </li>

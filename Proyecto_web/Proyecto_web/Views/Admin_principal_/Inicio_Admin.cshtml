@@ -3,15 +3,16 @@
     ViewBag.Title = "Inicio_Admin";
     Layout = "~/Views/Admin_principal_/Admin_Principal.cshtml";
 }
-
-@if (ViewBag.ID == null)
+@if (Session["Alerta"].ToString() == "1")
 {
     <script type="text/javascript">
             window.onload = function () {
                 swal('Felicidades','Ha iniciado sesion','success')
             }
     </script>
+    Session["Alerta"] = "2";
 }
+
 <div id="overlay">
     <div class="spinner"></div>
 </div>
@@ -23,7 +24,7 @@
     <div class="tile-stats">
         <div class="icon"><i class="fa fa-child"></i></div>
         <div class="count">1</div>
-        <h3><a href="@Url.Action("Perfil_Admin")">Mi Perfil </a></h3>
+        <h3><a href="@Url.Action("Perfil_Admin","Admin_principal_")">Mi Perfil </a></h3>
         <p >Ver Más.</p>
     </div>
 </div>
@@ -42,7 +43,7 @@
     <div class="tile-stats">
         <div class="icon"><i class="fa fa-check-square-o"></i></div>
         <div class="count">0</div>
-        <h3>Comidas Pendientes</h3>
+        <h3><a href="@Url.Action("DesAprobados","Admin_principal_")">Comidad Pendientes </a></h3>
         <p>Ver Más.</p>
     </div>
 </div>
@@ -50,7 +51,7 @@
     <div class="tile-stats">
         <div class="icon"><i class="fa fa-check-square-o"></i></div>
         <div class="count">0</div>
-        <h3>Comidas Aprobadas</h3>
+        <h3><a href="@Url.Action("Aprobados","Admin_principal_")">Comidas Aprobadas </a></h3>
         <p>Ver Más.</p>
     </div>
 </div>

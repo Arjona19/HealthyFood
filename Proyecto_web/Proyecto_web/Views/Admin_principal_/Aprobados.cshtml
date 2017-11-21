@@ -1,0 +1,69 @@
+﻿@using System.Data
+@{
+    ViewBag.Title = "Aprobados";
+    Layout = "~/Views/Admin_principal_/Admin_Principal.cshtml";
+}
+<link href="~/Conten_admin/Inicio_Admin_Recursos/Cards.css" rel="stylesheet" />
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Comidas Aprobadas </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+
+
+            <div class="x_content">
+
+                <div class="row">
+
+                    <p>Comidas ya aprobadas</p>
+
+                    
+                    <div class="col-md-12">
+                        @foreach (DataRow row in Model.Rows)
+                        {
+                            <tr id="fila_@row["ID"]">
+                                <article class="card">
+                                    <header class="card__thumb">
+                                        <a href="#">
+                                            <img src="http://lorempicsum.com/futurama/370/235/2">
+                                        </a>
+                                    </header>
+                                    <div class="card__date">
+                                        <span class="card__date__day">12</span>
+                                        <span class="card__date__month">Mai</span>
+                                    </div>
+                                    <div class="card__body">
+                                        <div class="card__category"><a href="#">@row["ID_usuario"]</a></div>
+                                        <h2 class="card__title"><a href="#">@row["Nombre"]</a></h2>
+                                        <div class="card__subtitle">@row["ID_clasificacion"]</div>
+                                        <p class="card__description">
+                                            @row["Descripcion"]
+                                        </p>
+                                    </div>
+                                    <footer class="card__footer">
+
+                                        <span class="icon icon--time"></span>6 min
+                                        <span class="icon icon--comment"></span><a href="#">39 comments</a>
+                                    </footer>@using (Ajax.BeginForm("Actualizar_Estatus_Aprobado_a_Desaprobado", "Admin_principal_", new { id = @row["ID"] }, new AjaxOptions() { HttpMethod = "POST" }))
+                                {@Html.AntiForgeryToken() <button class="btn btn-outline-danger"> Aprobar Comida</button>}
+
+                                    To be....
+
+                                </article>
+                            </tr>
+                        }
+                    </div>
+
+                </div>
+         
+</div>
+
+

@@ -7,7 +7,6 @@ using System.Web.UI.WebControls;
 using System.Web.Mvc;
 using Proyecto_web.Models;
 using Proyecto_web.BO_Usuario;
-
 using System.Data.SqlClient;
 using System.Data;
 
@@ -86,10 +85,6 @@ namespace Proyecto_web.Controllers
             DataTable dt = new DataTable();
             ViewBag.Data = dt;
             sda.Fill(dt);
-
-
-
-
             if (dt.Rows.Count == 1)
             {
                 Session["Nombre_Admin"] = Nombre_Usuario;
@@ -99,7 +94,7 @@ namespace Proyecto_web.Controllers
                 Session["Email"] = dt.Rows[0][3].ToString();
                 Session["Apellido"] = dt.Rows[0][2].ToString();
                 Session["Nombre"] = dt.Rows[0][1].ToString();
-           
+                Session["Alerta"] = "1";
                 if(dt.Rows[0][1].ToString() == "1")
                 {
                     ID = 1;
@@ -115,7 +110,7 @@ namespace Proyecto_web.Controllers
                 }
             
             }
-            ViewBag.showSuccessAlert = false;
+  
                 ViewBag.ID = null;          CerrarConexion();
             return View("Login");
   

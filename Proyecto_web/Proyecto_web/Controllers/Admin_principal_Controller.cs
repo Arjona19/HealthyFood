@@ -343,10 +343,48 @@ namespace Proyecto_web.Controllers
             return View();
         }
         
-
         public ActionResult Items()
         {
             return View();
         }
+
+        public ActionResult Aprobados()
+        {
+            ComidasModal OBJ = new ComidasModal();
+
+            return View(OBJ.Comidas_Aprobadas());
+        }
+
+
+        public ActionResult Actualizar_Estatus_Aprobado_a_Desaprobado(int id)
+        {
+
+            ComidasModal ObjC = new ComidasModal();
+            BO_Admin.ComidaBO objC = new BO_Admin.ComidaBO();
+            objC.id = id;
+            ObjC.ActualizarrEstatus(objC);
+            Aprobados();
+            return View("Aprobados");
+        }
+
+        public ActionResult DesAprobados()
+        {
+            ComidasModal OBJ = new ComidasModal();
+
+            return View(OBJ.Comidas_Desaprobadas());
+        }
+
+        public ActionResult Actualizar_Estatus_Desaprobado_a_aprobado(int id)
+        {
+
+            ComidasModal ObjC = new ComidasModal();
+            BO_Admin.ComidaBO objC = new BO_Admin.ComidaBO();
+            objC.id = id;
+            ObjC.ActualizarrEstatus_Desaprobado(objC);
+            DesAprobados();
+            return View("DesAprobados");
+        }
+
+
     }
 }
