@@ -323,7 +323,7 @@ namespace Proyecto_web.Controllers
         {
             UsuarioModal Obj = new UsuarioModal();
             BO_Usuario.LoginBO obj = new BO_Usuario.LoginBO();
-            obj.id = int.Parse(Session["Id_Admin"].ToString());
+            obj.id = int.Parse(Session["ID_Usuario"].ToString());
             obj.apellido = Apellido;
             obj.Email = Email;
             obj.contraseña = Contraseña;
@@ -336,7 +336,7 @@ namespace Proyecto_web.Controllers
         public ActionResult Cerrar_session()
         {
             
-                Session.Remove("Id_Admin");
+                Session.Remove("ID_Usuario");
               Response.Redirect("http://localhost:58232/Inicio_principal_/Login");
             
 

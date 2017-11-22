@@ -37,7 +37,7 @@
     <link href="~/Conten_admin/build/css/custom.min.css" rel="stylesheet" />
 
 
-    @if(Session["Id_Admin"] == null)
+    @if(Session["ID_Usuario"] == null)
     {
         ViewBag.Id = null;
         Response.Redirect("~/Inicio_Principal_/Error403");

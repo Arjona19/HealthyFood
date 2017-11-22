@@ -26,11 +26,11 @@
                     <p>Comidas ya aprobadas</p>
 
                     
-                    <div class="col-md-12">
+                    
                         @foreach (DataRow row in Model.Rows)
                         {
                             <tr id="fila_@row["ID"]">
-                                <article class="card">
+                                <article class="card embed-responsive-item col-lg-6">
                                     <header class="card__thumb">
                                         <a href="#">
                                             <img src="http://lorempicsum.com/futurama/370/235/2">
@@ -55,12 +55,12 @@
                                     </footer>@using (Ajax.BeginForm("Actualizar_Estatus_Aprobado_a_Desaprobado", "Admin_principal_", new { id = @row["ID"] }, new AjaxOptions() { HttpMethod = "POST" }))
                                 {@Html.AntiForgeryToken() <button class="btn btn-outline-danger"> Aprobar Comida</button>}
 
-                                    To be....
+                           
 
                                 </article>
                             </tr>
                         }
-                    </div>
+                   
 
                 </div>
          

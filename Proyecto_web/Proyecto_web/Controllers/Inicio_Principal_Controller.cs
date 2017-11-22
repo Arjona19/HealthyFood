@@ -16,17 +16,22 @@ namespace Proyecto_web.Controllers
     {
         UsuarioModal Obj = new UsuarioModal();
         UsuarioLoginBO Obj_Bo = new UsuarioLoginBO();
-     
+        ExtrasBO _oExtrasBO;
+        private String hashkey = "hg849gh84th==3tg7-534d=_";
 
 
         int ID;
-     string Contraseña;
+        string Contraseña;
+        public Inicio_Principal_Controller()
+        {
+            _oExtrasBO = new ExtrasBO();
+        }
 
         // GET: Inicio_Principal_
         public ActionResult Index()
         {
-            
-            ViewBag.ID = ID; 
+
+            ViewBag.ID = ID;
             return View();
         }
         public ActionResult Incio_Admin()
@@ -35,26 +40,26 @@ namespace Proyecto_web.Controllers
             ViewBag.ID = ID;
             return View("Incio_Admin");
         }
-        public ActionResult  Login()
+        public ActionResult Login()
         {
 
             ViewBag.ID = ID;
             ViewBag.Reg = ID;
-           
 
-          
+
+
             return View(/*ViewBag.showSuccessAlert=true*/);
         }
         public ActionResult RecuperarContraseña(string Correo)
         {
-            
-            SqlCommand cmd = new SqlCommand("select Email, Contraseña from Usuarios  where Email = '" + Correo+"'", con);
+
+            SqlCommand cmd = new SqlCommand("select Email, Contraseña from Usuarios  where Email = '" + Correo + "'", con);
             AbrirConexion();
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read() == true)
             {
-               Contraseña = dr["Contraseña"].ToString();
-                
+                Contraseña = dr["Contraseña"].ToString();
+
             }
 
             EnviarEmail obj = new EnviarEmail();
@@ -67,64 +72,60 @@ namespace Proyecto_web.Controllers
         [HttpPost]
         public ActionResult Loguearse(string Nombre_Usuario, string Contraseña)
         {
-
             string Nombre = "";
             string apellido = "";
             string email = "";
             string id = "";
 
             AbrirConexion();
-            SqlCommand cmd = new SqlCommand("SELECT  Nombre_Usuario, ID_Tipo, Apellido, Email, Contraseña, Nombre, ID FROM Usuarios WHERE Nombre_Usuario = @Nombre_Usuario AND Contraseña = @Contraseña", con);
+            SqlCommand cmd = new SqlCommand("SELECT Nombre_Usuario, ID_Tipo, Apellido, Email, Contraseña, Nombre, SHA512, ID FROM Usuarios WHERE Nombre_Usuario = @Nombre_Usuario AND Contraseña = @Contraseña AND SHA512=@SHA512", con);
             cmd.Parameters.AddWithValue("Nombre_Usuario", Nombre_Usuario);
-            cmd.Parameters.AddWithValue("Nombre", Nombre);
-            cmd.Parameters.AddWithValue("Contraseña", Contraseña);
+            cmd.Parameters.AddWithValue("Nombre", Nombre);     
             cmd.Parameters.AddWithValue("ID", id);
             cmd.Parameters.AddWithValue("Email", email);
             cmd.Parameters.AddWithValue("Apellido", apellido);
+            string sHA = _oExtrasBO.CreateSHAHash(Contraseña, hashkey);
+            string contra = _oExtrasBO.Encriptar(Contraseña);
+            cmd.Parameters.AddWithValue("Contraseña", contra);
+            cmd.Parameters.AddWithValue("SHA512", sHA);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             ViewBag.Data = dt;
             sda.Fill(dt);
+
             if (dt.Rows.Count == 1)
             {
-                Session["Nombre_Admin"] = Nombre_Usuario;
-                Session["Nombre_perfil"] = dt.Rows[0][5].ToString();
-                Session["Id_Admin"] = dt.Rows[0][6].ToString();
-                Session["Contraseña"] = Contraseña;
-                Session["Email"] = dt.Rows[0][3].ToString();
-                Session["Apellido"] = dt.Rows[0][2].ToString();
-                Session["Nombre"] = dt.Rows[0][1].ToString();
-                Session["Alerta"] = "1";
-                if(dt.Rows[0][1].ToString() == "1")
+                    Session["Nombre_Admin"] = Nombre_Usuario;
+                   Session["Nombre_perfil"] = dt.Rows[0][5].ToString();
+                     Session["ID_Usuario"] = dt.Rows[0][6].ToString();
+                    Session["Contraseña"] = Contraseña;
+                    Session["Email"] = dt.Rows[0][3].ToString();
+                    Session["Apellido"] = dt.Rows[0][2].ToString();
+                    Session["Nombre"] = dt.Rows[0][1].ToString();
+                    Session["Alerta"] = "1";
+
+                if (dt.Rows[0][1].ToString() == "1")
                 {
                     ID = 1;
                     return View("~/Views/Admin_principal_/Inicio_Admin.cshtml");
 
                 }
-                else if(dt.Rows[0][1].ToString() == "2")
+                else if (dt.Rows[0][1].ToString() == "2")
                 {
                     ID = 1;
-
-                    
-                    return View("Index");
+                    return View("~/Views/Usuario/Inicio_Usuario.cshtml");
                 }
-            
+
             }
-  
-                ViewBag.ID = null;          CerrarConexion();
+          ViewBag.ID = null;
+           CerrarConexion();
             return View("Login");
-  
-
-
-
-
-
         }
-       
+
 
         public ActionResult RegistroLogin()
         {
-            
+
             return View();
         }
 
@@ -136,11 +137,11 @@ namespace Proyecto_web.Controllers
             LoginBO obj = new LoginBO();
             obj.nombre = Nombre;
             obj.Nombre_usuario = Nombre_Usuario;
-            obj.contraseña = contraseña;
+            obj.contraseña =contraseña;
             obj.Email = Email;
             obj.apellido = Apellido;
 
-             Obj.AgregarUsuario(obj);
+            Obj.AgregarUsuario(obj);
             ID = 1;
 
             return RedirectToAction("Login");
@@ -170,6 +171,15 @@ namespace Proyecto_web.Controllers
 
 
         //***************************************************************************************************************************
+
+
+
+
+
+
+
+
+
         public ActionResult Error403()
         {
             return View();

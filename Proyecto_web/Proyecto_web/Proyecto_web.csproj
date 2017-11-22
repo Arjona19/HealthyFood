@@ -4617,6 +4617,7 @@
     <Compile Include="BO_Admin\EnfermedadBO.cs" />
     <Compile Include="BO_Admin\IngredientesBo.cs" />
     <Compile Include="BO_Admin\MedidasBO.cs" />
+    <Compile Include="BO_Usuario\ExtrasBO.cs" />
     <Compile Include="BO_Usuario\LoginBO.cs" />
     <Compile Include="BO_Usuario\UsuarioLoginBO.cs" />
     <Compile Include="Controllers\Admin_principal_Controller.cs" />
