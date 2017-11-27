@@ -52,7 +52,15 @@
 
 </head>
 <body  class="nav-md">
-    
+    <style>
+*{
+    background-image: url(../images/lol.jpg);
+
+    background-attachment: fixed;
+    animation : movimiento 10s infinite linear alternate; 
+}
+
+    </style>
       
         <div class="container body">
             <div class="main_container">
@@ -122,6 +130,11 @@
                                         <ul class="nav child_menu">
                                             <li><a href="@Url.Action("AgregarClasificacion","Admin_Principal_")">Clasificación de Comidas</a></li>
                                         </ul>
+                                    </li>
+
+                                    <li>
+                                        @using (Ajax.BeginForm("Respaldos", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
+                                        { @Html.AntiForgeryToken() <button type="submit" class="btn share-btn"></button>}
                                     </li>
 
                                 </ul>

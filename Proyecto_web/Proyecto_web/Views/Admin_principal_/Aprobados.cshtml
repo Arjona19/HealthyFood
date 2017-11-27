@@ -52,7 +52,8 @@
 
                                         <span class="icon icon--time"></span>6 min
                                         <span class="icon icon--comment"></span><a href="#">39 comments</a>
-                                    </footer>@using (Ajax.BeginForm("Actualizar_Estatus_Aprobado_a_Desaprobado", "Admin_principal_", new { id = @row["ID"] }, new AjaxOptions() { HttpMethod = "POST" }))
+                                    </footer>
+                                    @using (Ajax.BeginForm("Actualizar_Estatus_Aprobado_a_Desaprobado", "Admin_principal_", new { id = @row["ID"] }, new AjaxOptions() { HttpMethod = "POST" }))
                                 {@Html.AntiForgeryToken() <button class="btn btn-outline-danger"> Aprobar Comida</button>}
 
                            

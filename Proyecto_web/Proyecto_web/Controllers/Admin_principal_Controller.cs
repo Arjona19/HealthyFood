@@ -385,6 +385,11 @@ namespace Proyecto_web.Controllers
             return View("DesAprobados");
         }
 
-
+        public ActionResult Respaldos()
+        {
+            RespaldoModal ObjR = new RespaldoModal();
+            ObjR.Respaldo();
+            return View();
+        }
     }
 }

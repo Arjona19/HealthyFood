@@ -1,0 +1,302 @@
+﻿
+@{
+    ViewBag.Title = "HastuReceta";
+    Layout = "~/Views/Usuario/Index_Usuario.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/Load.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>_MasterAdmin</title>
+    <link rel="icon" href="~/icono.ico" />
+    <!-- Bootstrap -->
+    <link href="~/Conten_admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="~/Conten_admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <!-- NProgress -->
+    <link href="~/Conten_admin/vendors/nprogress/nprogress.css" rel="stylesheet" />
+    <!-- iCheck -->
+    <link href="~/Conten_admin/vendors/iCheck/skins/flat/green.css" rel="stylesheet" />
+    <!-- bootstrap-progressbar -->
+    <link href="~/Conten_admin/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+    <!-- JQVMap -->
+    <link href="~/Conten_admin/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="~/Conten_admin/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Custom Theme Style -->
+    <link href="~/Conten_admin/build/css/custom.min.css" rel="stylesheet" />
+
+</head>
+<body class="nav-md">
+
+
+    <div class="x_panel">
+        <div class="x_title">
+            <h2><small></small></h2>
+           
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+
+            <div class="row">
+
+   <!--informacion contenido-->
+
+
+                <div class="row">
+                   <div class="x_panel col-sm-12 col-sm-offset-4" >
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <i class="fa fa-user-md fa-fw"></i>Has tu Propia Receta
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                        <div class="form-group">
+                                            <label class="control-label">Nombre de la comida</label>
+                                            <input name="ctl00$ContentPlaceHolder1$txt_Titulo" id="ContentPlaceHolder1_txt_Titulo" type="text" class="form-control" placeholder="Titulo">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Descripción</label>
+                                            <input name="ctl00$ContentPlaceHolder1$txt_Descripcion" id="ContentPlaceHolder1_txt_Descripcion" type="text" class="form-control" placeholder="Breve descripción">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Ingredientes</label>
+
+                                            <form id="bookForm" method="post" class="form-horizontal">
+                                                <div class="form-group">
+                                                    
+                                                    <div class="col-xs-2">
+                                                        <input type="text" class="form-control" name="book[0].title" placeholder="Cantidad" />
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <input type="text" class="form-control" name="book[0].isbn" placeholder="Medida" />
+                                                    </div>
+                                                    <div class="col-xs-4 col-xs-offset-1">
+                                                        <input type="text" class="form-control" name="book[0].price" placeholder="Ingrediente" />
+                                                    </div>
+                                                    <div class="col-xs-1">
+                                                        <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
+                                                    </div>
+                                                </div>
+
+                                                <!-- The template for adding new field -->
+                                                <div class="form-group hide" id="bookTemplate">
+                                                    <div class="col-xs-2">
+                                                        <input type="text" class="form-control" name="title" placeholder="Cantidad" />
+                                                    </div>
+                                                    <div class="col-xs-4">
+                                                        <input type="text" class="form-control" name="isbn" placeholder="Medida" />
+                                                    </div>
+                                                    <div class="col-xs-4 col-xs-offset-1">
+                                                        <input type="text" class="form-control" name="price" placeholder="Ingrediente" />
+                                                    </div>
+                                                    <div class="col-xs-1">
+                                                        <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
+                                                    </div>
+                                                </div>
+
+                                                
+                                            </form>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Enfermedad</label>
+                                            <input name="ctl00$ContentPlaceHolder1$txt_Descripcion" id="ContentPlaceHolder1_txt_Descripcion" type="text" class="form-control" placeholder="Seleccione una Enfermedad">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">Clasifición</label>
+                                            <input name="ctl00$ContentPlaceHolder1$txt_Descripcion" id="ContentPlaceHolder1_txt_Descripcion" type="text" class="form-control" placeholder="Seleccione una Clasificacion">
+                                        </div>
+
+                                        <div class="form-group">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Vista previa de la imagen</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <img id="ContentPlaceHolder1_Img_Anuncio" class="img-responsive" src="../../IMG/hola.jpg" style="height:250px;width:200px;">
+                                            <p></p>
+                                            <p></p>
+                                            <label class="control-label">Agregue una imagen</label>
+                                            <input type="file" name="ctl00$ContentPlaceHolder1$FileUpload1" id="ContentPlaceHolder1_FileUpload1">
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script>
+        
+        $(document).ready(function () {
+    var titleValidators = {
+            row: '.col-xs-4',   // The title is placed inside a <div class="col-xs-4"> element
+            validators: {
+                notEmpty: {
+                    message: 'The title is required'
+                }
+            }
+        },
+        isbnValidators = {
+            row: '.col-xs-4',
+            validators: {
+                notEmpty: {
+                    message: 'The ISBN is required'
+                },
+                isbn: {
+                    message: 'The ISBN is not valid'
+                }
+            }
+        },
+        priceValidators = {
+            row: '.col-xs-2',
+            validators: {
+                notEmpty: {
+                    message: 'The price is required'
+                },
+                numeric: {
+                    message: 'The price must be a numeric number'
+                }
+            }
+        },
+        bookIndex = 0;
+
+    $('#bookForm')
+        .formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                'book[0].title': titleValidators,
+                'book[0].isbn': isbnValidators,
+                'book[0].price': priceValidators
+            }
+        })
+
+        // Add button click handler
+        .on('click', '.addButton', function() {
+            bookIndex++;
+            var $template = $('#bookTemplate'),
+                $clone    = $template
+                                .clone()
+                                .removeClass('hide')
+                                .removeAttr('id')
+                                .attr('data-book-index', bookIndex)
+                                .insertBefore($template);
+
+            // Update the name attributes
+            $clone
+                .find('[name="title"]').attr('name', 'book[' + bookIndex + '].title').end()
+                .find('[name="isbn"]').attr('name', 'book[' + bookIndex + '].isbn').end()
+                .find('[name="price"]').attr('name', 'book[' + bookIndex + '].price').end();
+
+            // Add new fields
+            // Note that we also pass the validator rules for new field as the third parameter
+            $('#bookForm')
+                .formValidation('addField', 'book[' + bookIndex + '].title', titleValidators)
+                .formValidation('addField', 'book[' + bookIndex + '].isbn', isbnValidators)
+                .formValidation('addField', 'book[' + bookIndex + '].price', priceValidators);
+        })
+
+        // Remove button click handler
+        .on('click', '.removeButton', function() {
+            var $row  = $(this).parents('.form-group'),
+                index = $row.attr('data-book-index');
+
+            // Remove fields
+            $('#bookForm')
+                .formValidation('removeField', $row.find('[name="book[' + index + '].title"]'))
+                .formValidation('removeField', $row.find('[name="book[' + index + '].isbn"]'))
+                .formValidation('removeField', $row.find('[name="book[' + index + '].price"]'));
+
+            // Remove element containing the fields
+            $row.remove();
+        });
+});
+    </script>
+
+
+
+
+
+
+
+    <section></section>
+
+    <!-- jQuery -->
+    <script src="~/Conten_admin/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Conten_admin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Conten_admin/vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="~/Conten_admin/vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="~/Conten_admin/vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="~/Conten_admin/vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="~/Conten_admin/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="~/Conten_admin/vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="~/Conten_admin/vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="~/Conten_admin/vendors/Flot/jquery.flot.js"></script>
+    <script src="~/Conten_admin/vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="~/Conten_admin/vendors/Flot/jquery.flot.time.js"></script>
+    <script src="~/Conten_admin/vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="~/Conten_admin/vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="~/Conten_admin/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="~/Conten_admin/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="~/Conten_admin/vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="~/Conten_admin/vendors/DateJS/build/date.js"></script>
+  
+  
+
+    <!-- Custom Theme Scripts -->
+    <script src="~/Conten_admin/build/js/custom.min.js"></script>
+    <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/easypiechart.js"></script>
+    <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/easypiechart.min.js"></script>
+    <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
+    <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+    
+
+
+
+</body>
+</html>
+
+

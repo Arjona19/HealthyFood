@@ -1,0 +1,17 @@
+﻿
+@keyframes movimiento{
+    from{
+        background-position:bottom left;
+    }to{
+         background-position: top right;
+     }
+}
+.Fondo {
+    background-image: url('../img/BackGround.jpeg');
+   
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    margin-top: 0px;
+    animation: movimiento 10s infinite linear alternate;
+}

@@ -1,0 +1,117 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Paper Kit 2 by Creative Tim</title>
+    
+    <!-- Bootstrap core CSS     -->
+    <link href="~/animate.css" rel="stylesheet" />
+    <link href="~/Conten_admin/build/css/custom.min.css" rel="stylesheet" />
+    <link href="~/Conten_Usuario/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Conten_Usuario/assets/css/paper-kit.css?v=2.1.0" rel="stylesheet">
+    <link href="~/Conten_Usuario/assets/css/demo.css" rel="stylesheet">
+    <!-- Wizard     -->
+    <link href="~/Conten_Usuario/assets/css/paper-bootstrap-wizard.css" rel="stylesheet">
+    <link href="~/Conten_Usuario/assets/css/themify-icons.css" rel="stylesheet">
+    <!--     Fonts and icons     -->
+    <link href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,300,700" rel="stylesheet" type="text/css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Conten_Usuario/assets/css/nucleo-icons.css" rel="stylesheet">
+    <link href="~/Conten_Usuario/assets/css/Background.css" rel="stylesheet" />
+</head>
+<body class="Fondo ">@*navbar-transparent nav-no-padding*@
+    <div  style="height:100%" >
+    <nav class="navbar navbar-expand-md navbar-transparent nav-no-padding"    >
+        <div class="container"  style="width:960px">
+            <div class="navbar-translate">
+                <button class="navbar-toggler navbar-toggler-right navbar-burger" aria-expanded="false" aria-controls="navbarTogglerDemo02" aria-label="Toggle navigation" type="button" data-toggle="collapse" data-target="#navbarToggler">
+                    <span class="navbar-toggler-bar"></span>
+                    <span class="navbar-toggler-bar"></span>
+                    <span class="navbar-toggler-bar"></span>
+                </button>
+     
+                <a class="navbar-brand" href="https://www.creative-tim.com"><img class="profile-img-card  animated infinite pulse " style="width:150px; height:60px;" src="~/Conten_Usuario/assets/img/HealthyFood.png" /></a>
+            </div>
+
+            <div class="col-md-8 animated fadeInUp">
+                <button class="btn btn-primary btn-round" type="button"  aria-describedby="tooltip57646" data-toggle="tooltip" data-placement="bottom" data-original-title="Inicio"><i class="nc-icon nc-single-02"></i></button>
+                <button class="btn btn-info btn-round" type="button"  aria-describedby="tooltip57646" data-toggle="tooltip" data-placement="bottom" data-original-title="Hacer recetas"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-success btn-round" type="button"  aria-describedby="tooltip57646" data-toggle="tooltip" data-placement="bottom" data-original-title="Comidas"><i class="fa fa-apple"></i></button>
+                <button class="btn btn-warning btn-round" type="button"  aria-describedby="tooltip57646" data-toggle="tooltip" data-placement="bottom" data-original-title="Recetas"><i class="fa fa-cutlery"></i></button>
+                <button class="btn btn-danger btn-round" type="button"  aria-describedby="tooltip57646" data-toggle="tooltip" data-placement="bottom" data-original-title="Mensajes"><i class="nc-icon nc-chat-33"></i></button>
+            </div>
+
+
+
+            <div class="nav-item dropdown" aria-describedby="tooltip57646" data-toggle="tooltip" data-placement="right" data-original-title="Mi perfil">
+
+                <img data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" class="profile-img-card  animated infinite pulse " style="width:70px; height:70px; position:relative   " src="~/Conten_Principal/images/LogoH.png" /></a>
+                <ul class="dropdown-menu ">
+                    <div class="dropdown-header" data-toggle="tab" href="#action">Perfil</div>
+                    <a class="dropdown-item" href="#">Configuracion<i class="nc-icon nc-settings"></i></a>
+                    <a class="dropdown-item" href="#">Cerrar sesión   <i class="nc-icon nc-button-power"></i></a>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </nav>
+        <div class="fixed-section"></div>
+</div> 
+    @RenderBody()
+  
+<footer class="footer animated fadeInRight"  style="background-color:#ffffff">
+        <div class="container">
+            <div class="row">
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="http://www.creative-tim.com">Creative Tim</a></li>
+                        <li><a href="http://blog.creative-tim.com">Blog</a></li>
+                        <li><a href="http://www.creative-tim.com/license">Licenses</a></li>
+                    </ul>
+                </nav>
+                <div class="credits ml-auto">
+                    <span class="copyright">
+                        ©
+                        <script>document.write(new Date().getFullYear())</script>2017, made with <i class="fa fa-heart heart"></i> by Creative Tim
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+<script src="~/Conten_Usuario/assets/js/jquery-3.2.1.js" type="text/javascript"></script>
+<script src="~/Conten_Usuario/assets/js/jquery-ui-1.12.1.custom.min.js" type="text/javascript"></script>
+<script src="~/Conten_Usuario/assets/js/popper.js" type="text/javascript"></script>
+<script src="~/Conten_Usuario/assets/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- Switches -->
+<script src="~/Conten_Usuario/assets/js/bootstrap-switch.min.js"></script>
+<!--  Plugins for Slider -->
+<script src="~/Conten_Usuario/assets/js/nouislider.js"></script>
+<!--  Plugins for DateTimePicker -->
+<script src="~/Conten_Usuario/assets/js/moment.min.js"></script>
+<script src="~/Conten_Usuario/assets/js/bootstrap-datetimepicker.min.js"></script>
+<!--  Paper Kit Initialization and functons -->
+<script src="~/Conten_Usuario/assets/js/paper-kit.js?v=2.1.0"></script>
+<!--Wizard js-->
+	<!--   Core JS Files   -->
+@*<script src="~/Conten_Usuario/assets/js/jquery-2.2.4.min.js" type="text/javascript"></script>*@
+
+<script src="~/Conten_Usuario/assets/js/jquery.bootstrap.wizard.js" type="text/javascript"></script>
+<!--  Plugin for the Wizard -->
+<script src="~/Conten_Usuario/assets/js/paper-bootstrap-wizard.js" type="text/javascript"></script>
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="~/Conten_Usuario/assets/js/jquery.validate.min.js" type="text/javascript"></script>

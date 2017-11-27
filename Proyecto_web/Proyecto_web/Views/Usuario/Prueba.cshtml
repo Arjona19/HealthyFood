@@ -1,0 +1,168 @@
+﻿
+@{
+    ViewBag.Title = "Prueba";
+    Layout = "~/Views/Usuario/Index_Usuario.cshtml";
+}
+
+<link href="~/Conten_Usuario/assets/img/icono.ico" rel="icon" sizes="76x76">
+<div class="container" style="width:960px">
+    <div class="row">
+        <div class="col-sm-12 col-sm-offset-4">
+            <!--      Wizard container        -->
+            <div class="wizard-container" style="padding-top:0px; width:890px;" >
+                <div class="card wizard-card animated bounceIn" id="wizardProfile" data-color="red">
+                    <form action="" method="" novalidate="novalidate">
+                        <!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
+                        <div class="wizard-header text-center">
+                            <h3 class="wizard-title">Informacion que cura</h3>
+                            <p class="category">Cuentanos un poco mas de ti</p>
+                        </div>
+                        <div class="wizard-navigation">
+                            <div class="progress-with-circle">
+                                <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 16.66%;"></div>
+                            </div>
+                            <ul class="nav nav-pills">
+                                <li class="active" style="width: 33.33%;">
+                                    <a aria-expanded="true" href="#about" data-toggle="tab">
+                                        <div class="icon-circle checked">
+                                            <i class="ti-user"></i>
+                                        </div>
+                                      <h6>Sobre ti</h6> 
+                                    </a>
+                                </li>
+                                <li style="width: 33.33%;">
+                                    <a href="#account" data-toggle="tab">
+                                        <div class="icon-circle checked">
+                                            
+                                            <i class="ti-alert"></i>
+                                        </div>
+                                        <h6>Tus Alergias</h6>
+                                    </a>
+                                </li>
+                                <li  style="width: 33.33%;">
+                                    <a href="#address" data-toggle="tab">
+                                        <div class="icon-circle checked">
+                                            <i class="ti-face-sad"></i>
+                                        </div>
+                                       <h6> Enfermedades</h6>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="about">
+                                <div class="row">
+                                    <div class="col-sm-4 col-sm-offset-1">
+                                        <div class="picture-container">
+                                            <div class="picture">
+                                                <img title="" class="picture-src" id="wizardPicturePreview" src="~/Conten_Usuario/assets/img/default-avatar.jpg">
+                                                <input id="wizard-picture" type="file">
+                                            </div>
+                                            <h6>Elige una foto</h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label>Nombre<small>(required)</small></label>
+                                            <input name="firstname" class="form-control" type="text" placeholder="Andrew...">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Apellido<small>(required)</small></label>
+                                            <input name="lastname" class="form-control" type="text" placeholder="Smith...">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-10 col-sm-offset-1">
+                                        <div class="form-group">
+                                            <label>Correo Electronico <small>(required)</small></label>
+                                            <input name="email" class="form-control" type="email" placeholder="andrew@creative-tim.com">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="account">
+                                <h5 class="info-text"> Tus Alergias </h5>
+                                <div class="row">
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <div class="col-sm-4">
+                                            <div class="choice" data-toggle="wizard-checkbox">
+                                                <input name="jobb" type="checkbox" value="Design">
+                                                <div class="card card-checkboxes card-hover-effect">
+                                                    <i class="ti-paint-roller"></i>
+                                                    <p>Design</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="choice" data-toggle="wizard-checkbox">
+                                                <input name="jobb" type="checkbox" value="Code">
+                                                <div class="card card-checkboxes card-hover-effect">
+                                                    <i class="ti-pencil-alt"></i>
+                                                    <p>Code</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="choice" data-toggle="wizard-checkbox">
+                                                <input name="jobb" type="checkbox" value="Develop">
+                                                <div class="card card-checkboxes card-hover-effect">
+                                                    <i class="ti-star"></i>
+                                                    <p>Develop</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="address">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h5 class="info-text"> Tus enfermedades </h5>
+                                    </div>
+                                    <div class="col-sm-8 col-sm-offset-2">
+                                        <div class="col-sm-4">
+                                            <div class="choice" data-toggle="wizard-checkbox">
+                                                <input name="jobb" type="checkbox" value="Design">
+                                                <div class="card card-checkboxes card-hover-effect">
+                                                    <i class="ti-paint-roller"></i>
+                                                    <p>Design</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="choice" data-toggle="wizard-checkbox">
+                                                <input name="jobb" type="checkbox" value="Code">
+                                                <div class="card card-checkboxes card-hover-effect">
+                                                    <i class="ti-pencil-alt"></i>
+                                                    <p>Code</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <div class="choice" data-toggle="wizard-checkbox">
+                                                <input name="jobb" type="checkbox" value="Develop">
+                                                <div class="card card-checkboxes card-hover-effect">
+                                                    <i class="ti-star"></i>
+                                                    <p>Develop</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wizard-footer">
+                            <div class="pull-right">
+                                <input name="next" class="btn btn-next btn-fill btn-warning btn-wd" type="button" value="Siguiente">
+                                <input name="finish" class="btn btn-finish btn-fill btn-warning btn-wd" style="display: none;" type="button" value="Listo">
+                            </div>
+                            <div class="pull-left">
+                                <input name="previous" class="btn btn-previous btn-default btn-wd disabled" type="button" value="Anterior">
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- wizard container -->
+        </div>
+    </div><!-- end row -->
+</div>

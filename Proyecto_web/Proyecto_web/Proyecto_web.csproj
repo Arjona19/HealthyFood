@@ -92,6 +92,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="animate.css" />
     <Content Include="Content\Load.css" />
     <Content Include="Conten_admin\.gitignore" />
     <Content Include="Conten_admin\build\css\custom.css" />
@@ -3729,6 +3730,71 @@
     <Content Include="Conten_Principal\images\res_img_6.jpg" />
     <Content Include="Conten_Principal\images\res_img_7.jpg" />
     <Content Include="Conten_Principal\images\res_img_8.jpg" />
+    <Content Include="Conten_Usuario\assets\css\Background.css" />
+    <Content Include="Conten_Usuario\assets\css\bootstrap.min.css" />
+    <Content Include="Conten_Usuario\assets\css\demo.css" />
+    <Content Include="Conten_Usuario\assets\css\nucleo-icons.css" />
+    <Content Include="Conten_Usuario\assets\css\paper-bootstrap-wizard.css" />
+    <Content Include="Conten_Usuario\assets\css\paper-kit.css" />
+    <Content Include="Conten_Usuario\assets\css\themify-icons-demo.css" />
+    <Content Include="Conten_Usuario\assets\css\themify-icons.css" />
+    <Content Include="Conten_Usuario\assets\fonts\themify.svg" />
+    <Content Include="Conten_Usuario\assets\img\antoine-barres.jpg" />
+    <Content Include="Conten_Usuario\assets\img\apple-icon.png" />
+    <Content Include="Conten_Usuario\assets\img\BackGround.jpeg" />
+    <Content Include="Conten_Usuario\assets\img\bruno-abatti.jpg" />
+    <Content Include="Conten_Usuario\assets\img\clouds.png" />
+    <Content Include="Conten_Usuario\assets\img\creative-tim-white-slim2.png" />
+    <Content Include="Conten_Usuario\assets\img\daniel-olahh.jpg" />
+    <Content Include="Conten_Usuario\assets\img\daniel-olahs.jpg" />
+    <Content Include="Conten_Usuario\assets\img\default-avatar.jpg" />
+    <Content Include="Conten_Usuario\assets\img\examples\landing-page.JPG" />
+    <Content Include="Conten_Usuario\assets\img\examples\profile-page.JPG" />
+    <Content Include="Conten_Usuario\assets\img\fabio-mangione.jpg" />
+    <Content Include="Conten_Usuario\assets\img\faces\ayo-ogunseinde-2.jpg" />
+    <Content Include="Conten_Usuario\assets\img\faces\clem-onojeghuo-2.jpg" />
+    <Content Include="Conten_Usuario\assets\img\faces\clem-onojeghuo-3.jpg" />
+    <Content Include="Conten_Usuario\assets\img\faces\erik-lucatero-2.jpg" />
+    <Content Include="Conten_Usuario\assets\img\faces\joe-gardner-2.jpg" />
+    <Content Include="Conten_Usuario\assets\img\faces\kaci-baum-2.jpg" />
+    <Content Include="Conten_Usuario\assets\img\favicon.ico" />
+    <Content Include="Conten_Usuario\assets\img\favicon.png" />
+    <Content Include="Conten_Usuario\assets\img\federico-beccari.jpg" />
+    <Content Include="Conten_Usuario\assets\img\fog-low.png" />
+    <Content Include="Conten_Usuario\assets\img\HealthyFood.png" />
+    <Content Include="Conten_Usuario\assets\img\icono.ico" />
+    <Content Include="Conten_Usuario\assets\img\ilya-yakover.jpg" />
+    <Content Include="Conten_Usuario\assets\img\joshua-stannard.jpg" />
+    <Content Include="Conten_Usuario\assets\img\login-image.jpg" />
+    <Content Include="Conten_Usuario\assets\img\new_logo.png" />
+    <Content Include="Conten_Usuario\assets\img\paper-1.jpeg" />
+    <Content Include="Conten_Usuario\assets\img\paper-2.jpeg" />
+    <Content Include="Conten_Usuario\assets\img\paper-3.jpeg" />
+    <Content Include="Conten_Usuario\assets\img\placeholder.jpg" />
+    <Content Include="Conten_Usuario\assets\img\soroush-karimi.jpg" />
+    <Content Include="Conten_Usuario\assets\img\thumb_list_boat.png" />
+    <Content Include="Conten_Usuario\assets\img\thumb_list_place.png" />
+    <Content Include="Conten_Usuario\assets\img\thumb_register.png" />
+    <Content Include="Conten_Usuario\assets\img\tim_80x80.png" />
+    <Content Include="Conten_Usuario\assets\img\uriel-soberanes.jpg" />
+    <Content Include="Conten_Usuario\assets\img\vector.jpg" />
+    <Content Include="Conten_Usuario\assets\img\wizard-boat.jpg" />
+    <Content Include="Conten_Usuario\assets\img\wizard-city.jpg" />
+    <Content Include="Conten_Usuario\assets\img\wizard.jpg" />
+    <Content Include="Conten_Usuario\assets\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Conten_Usuario\assets\js\bootstrap-switch.min.js" />
+    <Content Include="Conten_Usuario\assets\js\bootstrap.min.js" />
+    <Content Include="Conten_Usuario\assets\js\Ingrediente.js" />
+    <Content Include="Conten_Usuario\assets\js\jquery-2.2.4.min.js" />
+    <Content Include="Conten_Usuario\assets\js\jquery-3.2.1.js" />
+    <Content Include="Conten_Usuario\assets\js\jquery-ui-1.12.1.custom.min.js" />
+    <Content Include="Conten_Usuario\assets\js\jquery.bootstrap.wizard.js" />
+    <Content Include="Conten_Usuario\assets\js\jquery.validate.min.js" />
+    <Content Include="Conten_Usuario\assets\js\moment.min.js" />
+    <Content Include="Conten_Usuario\assets\js\nouislider.js" />
+    <Content Include="Conten_Usuario\assets\js\paper-bootstrap-wizard.js" />
+    <Content Include="Conten_Usuario\assets\js\paper-kit.js" />
+    <Content Include="Conten_Usuario\assets\js\popper.js" />
     <Content Include="icono.ico" />
     <Content Include="Scripts\animate.css" />
     <Content Include="Scripts\btnAgregar.css" />
@@ -4601,6 +4667,59 @@
     <Content Include="Conten_admin\vendors\validator\validator.jquery.json" />
     <Content Include="Conten_admin\src\scss\custom.scss" />
     <Content Include="Conten_admin\src\scss\daterangepicker.scss" />
+    <Content Include="Conten_Usuario\assets\.DS_Store" />
+    <Content Include="Conten_Usuario\assets\css\.DS_Store" />
+    <Content Include="Conten_Usuario\assets\fonts\nucleo-icons.eot" />
+    <Content Include="Conten_Usuario\assets\fonts\nucleo-icons.ttf" />
+    <Content Include="Conten_Usuario\assets\fonts\nucleo-icons.woff" />
+    <Content Include="Conten_Usuario\assets\fonts\nucleo-icons.woff2" />
+    <Content Include="Conten_Usuario\assets\img\.DS_Store" />
+    <Content Include="Conten_Usuario\assets\img\examples\.DS_Store" />
+    <Content Include="Conten_Usuario\assets\img\faces\.DS_Store" />
+    <Content Include="Conten_Usuario\assets\js\.DS_Store" />
+    <Content Include="Conten_Usuario\assets\sass\.DS_Store" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\.DS_Store" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\mixins\_buttons.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\mixins\_inputs.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\mixins\_labels.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\mixins\_navbars.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\mixins\_popovers.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\mixins\_tabs.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\mixins\_transparency.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\mixins\_vendor-prefixes.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\plugins\_datetimepicker.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_alerts.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_bootstrap-switch.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_buttons.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_cards.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_carousel.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_checkbox-radio.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_collapse.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_dropdown.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_examples.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_footers.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_icons.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_images.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_inputs.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_labels.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_misc.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_mixins.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_modal.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_navbars.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_progress-bars.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_responsive.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_sections.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_sliders.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_social-buttons.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_tabs-navs-pagination.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_tooltips-and-popovers.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_typography.scss" />
+    <Content Include="Conten_Usuario\assets\sass\paper-kit\_variables.scss" />
+    <Content Include="Conten_Usuario\assets\fonts\themify.eot" />
+    <Content Include="Conten_Usuario\assets\fonts\themify.ttf" />
+    <Content Include="Conten_Usuario\assets\fonts\themify.woff" />
+    <Content Include="Conten_Usuario\assets\sass\paper-bootstrap-wizard.scss" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -4633,6 +4752,7 @@
     <Compile Include="Models\EnviarEmail.cs" />
     <Compile Include="Models\IngredientesModal.cs" />
     <Compile Include="Models\MedidasModal.cs" />
+    <Compile Include="Models\RespaldoModal.cs" />
     <Compile Include="Models\UsuarioModal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -4760,6 +4880,9 @@
     <Content Include="Views\Admin_principal_\Items.cshtml" />
     <Content Include="Views\Admin_principal_\Aprobados.cshtml" />
     <Content Include="Views\Admin_principal_\DesAprobados.cshtml" />
+    <Content Include="Views\Usuario\Index_Usuario.cshtml" />
+    <Content Include="Views\Usuario\Prueba.cshtml" />
+    <Content Include="Views\Usuario\HastuReceta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4769,6 +4892,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Conten_Usuario\assets\sass\paper-bootstrap-wizard\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
