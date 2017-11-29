@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using Proyecto_web.Models;
 using Proyecto_web.BO_Admin;
 using System.Data.SqlClient;
+using System.Data;
+using Microsoft.Reporting.WebForms;
+using System.IO;
 
 namespace Proyecto_web.Controllers
 {
@@ -15,6 +18,12 @@ namespace Proyecto_web.Controllers
         IngredientesModal Objeto_INgrediente = new IngredientesModal();
         string Nombre;
         string id_glo;
+
+        ConneccionBD_Modal Con;
+        public Admin_principal_Controller()
+        {
+            Con = new ConneccionBD_Modal();
+        }
 
         // GET: Admin_principal_
         public ActionResult Admin_Principal()
@@ -390,6 +399,127 @@ namespace Proyecto_web.Controllers
             RespaldoModal ObjR = new RespaldoModal();
             ObjR.Respaldo();
             return View();
+        }
+
+        public ActionResult ReporteIngredientes()
+        {
+            {
+                #region Datos dummy
+                string query = ("Select Nombre, Imagen from Ingredientes");
+                var result = Con.Tabla_Consultada(query);
+                List<IngredientesBo> Ingredientes = new List<IngredientesBo>();
+                foreach (DataRow Ingrediente in result.Rows)
+                {
+                    var ingBO = new IngredientesBo();
+                    ingBO.Nombre = Ingrediente[0].ToString();
+                    ingBO.icono = Ingrediente[1].ToString();
+                    Ingredientes.Add(ingBO);
+                }
+                #endregion Datos dummy
+
+                string DirectorioReportesRelativo = "~/Reportes/Reportes/";
+                string urlArchivo = string.Format("{0}.{1}", "ReporteIngrediente", "rdlc");
+                string FullPathReport = string.Format("{0}{1}", this.HttpContext.Server.MapPath(DirectorioReportesRelativo), urlArchivo);
+                ReportViewer reporte = new ReportViewer();
+                reporte.Reset();
+                reporte.LocalReport.ReportPath = FullPathReport;
+                ReportDataSource DatosDS = new ReportDataSource("DatoIngrediente", Ingredientes);
+                reporte.LocalReport.DataSources.Add(DatosDS);
+                reporte.LocalReport.Refresh();
+                byte[] file = reporte.LocalReport.Render("PDF");
+
+                return File(new MemoryStream(file).ToArray(), System.Net.Mime.MediaTypeNames.Application.Octet, string.Format("{0}{1}", "ReporteIngredientes.", "PDF"));
+            }
+        }
+
+        public ActionResult ReporteEnfermedades()
+        {
+            {
+                #region Datos dummy
+                string query = ("Select Nombre from Enfermedades");
+                var result = Con.Tabla_Consultada(query);
+                List<EnfermedadBO> Enfermedades = new List<EnfermedadBO>();
+                foreach (DataRow Enfermedad in result.Rows)
+                {
+                    var enfBO = new EnfermedadBO();
+                    enfBO.Nombre = Enfermedad[0].ToString();
+                    Enfermedades.Add(enfBO);
+                }
+                #endregion Datos dummy
+
+                string DirectorioReportesRelativo = "~/Reportes/Reportes/";
+                string urlArchivo = string.Format("{0}.{1}", "ReporteEnfermedad", "rdlc");
+                string FullPathReport = string.Format("{0}{1}", this.HttpContext.Server.MapPath(DirectorioReportesRelativo), urlArchivo);
+                ReportViewer reporte = new ReportViewer();
+                reporte.Reset();
+                reporte.LocalReport.ReportPath = FullPathReport;
+                ReportDataSource DatosDS = new ReportDataSource("DatoEnfermedad", Enfermedades);
+                reporte.LocalReport.DataSources.Add(DatosDS);
+                reporte.LocalReport.Refresh();
+                byte[] file = reporte.LocalReport.Render("PDF");
+
+                return File(new MemoryStream(file).ToArray(), System.Net.Mime.MediaTypeNames.Application.Octet, string.Format("{0}{1}", "ReporteEnfermedad.", "PDF"));
+            }
+        }
+
+        public ActionResult ReporteClasificacion()
+        {
+            {
+                #region Datos dummy
+                string query = ("Select Nombre from Clasificacion");
+                var result = Con.Tabla_Consultada(query);
+                List<ClasificaciónComidasBO> Clasificaciones = new List<ClasificaciónComidasBO>();
+                foreach (DataRow Clasificacion in result.Rows)
+                {
+                    var claBO = new ClasificaciónComidasBO();
+                    claBO.Clasificaion = Clasificacion[0].ToString();
+                    Clasificaciones.Add(claBO);
+                }
+                #endregion Datos dummy
+
+                string DirectorioReportesRelativo = "~/Reportes/Reportes/";
+                string urlArchivo = string.Format("{0}.{1}", "ReporteClasificacion", "rdlc");
+                string FullPathReport = string.Format("{0}{1}", this.HttpContext.Server.MapPath(DirectorioReportesRelativo), urlArchivo);
+                ReportViewer reporte = new ReportViewer();
+                reporte.Reset();
+                reporte.LocalReport.ReportPath = FullPathReport;
+                ReportDataSource DatosDS = new ReportDataSource("DatoClasificacion", Clasificaciones);
+                reporte.LocalReport.DataSources.Add(DatosDS);
+                reporte.LocalReport.Refresh();
+                byte[] file = reporte.LocalReport.Render("PDF");
+
+                return File(new MemoryStream(file).ToArray(), System.Net.Mime.MediaTypeNames.Application.Octet, string.Format("{0}{1}", "ReporteClasificacion.", "PDF"));
+            }
+        }
+
+        public ActionResult ReporteMedidas()
+        {
+            {
+                #region Datos dummy
+                string query = ("Select Medida from Medidas");
+                var result = Con.Tabla_Consultada(query);
+                List<MedidasBO> Medidas = new List<MedidasBO>();
+                foreach (DataRow Medida in result.Rows)
+                {
+                    var medBO = new MedidasBO();
+                    medBO.Medida = Medida[0].ToString();
+                    Medidas.Add(medBO);
+                }
+                #endregion Datos dummy
+
+                string DirectorioReportesRelativo = "~/Reportes/Reportes/";
+                string urlArchivo = string.Format("{0}.{1}", "ReporteMedida", "rdlc");
+                string FullPathReport = string.Format("{0}{1}", this.HttpContext.Server.MapPath(DirectorioReportesRelativo), urlArchivo);
+                ReportViewer reporte = new ReportViewer();
+                reporte.Reset();
+                reporte.LocalReport.ReportPath = FullPathReport;
+                ReportDataSource DatosDS = new ReportDataSource("DatoMedida", Medidas);
+                reporte.LocalReport.DataSources.Add(DatosDS);
+                reporte.LocalReport.Refresh();
+                byte[] file = reporte.LocalReport.Render("PDF");
+
+                return File(new MemoryStream(file).ToArray(), System.Net.Mime.MediaTypeNames.Application.Octet, string.Format("{0}{1}", "ReporteMedida.", "PDF"));
+            }
         }
     }
 }

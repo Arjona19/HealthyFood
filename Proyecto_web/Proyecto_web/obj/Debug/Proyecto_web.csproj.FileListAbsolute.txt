@@ -79,3 +79,8 @@ C:\Users\Santiago\Documents\HealthyFood\Proyecto_web\Proyecto_web\bin\es\System.
 C:\Users\Santiago\Documents\HealthyFood\Proyecto_web\Proyecto_web\obj\Debug\Proyecto_web.dll
 C:\Users\Santiago\Documents\HealthyFood\Proyecto_web\Proyecto_web\obj\Debug\Proyecto_web.pdb
 C:\Users\Santiago\Documents\HealthyFood\Proyecto_web\Proyecto_web\obj\Debug\Proyecto_web.csprojResolveAssemblyReference.cache
+C:\Users\Santiago\Documents\HealthyFood\Proyecto_web\Proyecto_web\bin\Microsoft.ReportViewer.WebForms.dll
+C:\Users\Santiago\Documents\HealthyFood\Proyecto_web\Proyecto_web\bin\Microsoft.ReportViewer.Common.dll
+C:\Users\Santiago\Documents\HealthyFood\Proyecto_web\Proyecto_web\bin\Microsoft.ReportViewer.WebForms.xml
+C:\Users\Santiago\Documents\HealthyFood\Proyecto_web\Proyecto_web\obj\Debug\RdlCompile.cache
+C:\Users\Santiago\Documents\HealthyFood\Proyecto_web\Proyecto_web\obj\Debug\RdlCompile.compiled

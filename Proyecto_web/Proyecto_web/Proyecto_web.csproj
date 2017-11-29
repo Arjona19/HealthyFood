@@ -51,6 +51,7 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -3733,6 +3734,7 @@
     <Content Include="Conten_Usuario\assets\css\Background.css" />
     <Content Include="Conten_Usuario\assets\css\bootstrap.min.css" />
     <Content Include="Conten_Usuario\assets\css\demo.css" />
+    <Content Include="Conten_Usuario\assets\css\Loader.css" />
     <Content Include="Conten_Usuario\assets\css\nucleo-icons.css" />
     <Content Include="Conten_Usuario\assets\css\paper-bootstrap-wizard.css" />
     <Content Include="Conten_Usuario\assets\css\paper-kit.css" />
@@ -4720,6 +4722,17 @@
     <Content Include="Conten_Usuario\assets\fonts\themify.ttf" />
     <Content Include="Conten_Usuario\assets\fonts\themify.woff" />
     <Content Include="Conten_Usuario\assets\sass\paper-bootstrap-wizard.scss" />
+    <Content Include="Reportes\Reportes\DSResportes.xsc">
+      <DependentUpon>DSResportes.xsd</DependentUpon>
+    </Content>
+    <None Include="Reportes\Reportes\DSResportes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSResportes.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Reportes\Reportes\DSResportes.xss">
+      <DependentUpon>DSResportes.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -4755,6 +4768,11 @@
     <Compile Include="Models\RespaldoModal.cs" />
     <Compile Include="Models\UsuarioModal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\Reportes\DSResportes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSResportes.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -4876,13 +4894,14 @@
     <Content Include="Views\Admin_principal_\Agregar_Ingrediente.cshtml" />
     <Content Include="Views\Admin_principal_\Perfil_Admin.cshtml" />
     <Content Include="Views\Inicio_Principal_\Error403.cshtml" />
-    <Content Include="Views\Usuario\Inicio_Usuario.cshtml" />
     <Content Include="Views\Admin_principal_\Items.cshtml" />
     <Content Include="Views\Admin_principal_\Aprobados.cshtml" />
     <Content Include="Views\Admin_principal_\DesAprobados.cshtml" />
     <Content Include="Views\Usuario\Index_Usuario.cshtml" />
     <Content Include="Views\Usuario\Prueba.cshtml" />
     <Content Include="Views\Usuario\HastuReceta.cshtml" />
+    <Content Include="Views\Usuario\Inicio_Usuario.cshtml" />
+    <Content Include="Views\Usuario\VerTodaslasComidas.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -4900,6 +4919,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reportes\Reportes\ReporteClasificacion.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\ReporteEnfermedad.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\ReporteIngrediente.rdlc" />
+    <EmbeddedResource Include="Reportes\Reportes\ReporteMedida.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

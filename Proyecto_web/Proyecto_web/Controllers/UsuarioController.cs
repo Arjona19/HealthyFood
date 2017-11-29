@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Proyecto_web.Models;
+using Proyecto_web.BO_Admin;
 
 namespace Proyecto_web.Controllers
 {
@@ -29,6 +31,12 @@ namespace Proyecto_web.Controllers
         public ActionResult HastuReceta()
         {
             return View();
+        }
+        public ActionResult VerTodaslasComidas()
+        {
+            ComidasModal OBJ = new ComidasModal();
+
+            return View(OBJ.Comidas_Aprobadas());
         }
 
 

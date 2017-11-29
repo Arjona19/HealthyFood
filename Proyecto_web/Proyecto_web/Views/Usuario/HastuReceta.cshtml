@@ -3,6 +3,10 @@
     ViewBag.Title = "HastuReceta";
     Layout = "~/Views/Usuario/Index_Usuario.cshtml";
 }
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +16,8 @@
     <meta name="viewport" content="width=device-width" />
     <title>_MasterAdmin</title>
     <link rel="icon" href="~/icono.ico" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- Bootstrap -->
     <link href="~/Conten_admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Font Awesome -->
@@ -30,25 +36,80 @@
     <!-- Custom Theme Style -->
     <link href="~/Conten_admin/build/css/custom.min.css" rel="stylesheet" />
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#btnAdd').click(function () {
+                var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+                var newNum = new Number(num + 1);      // the numeric ID of the new input field being added
+
+                // create the new element via clone(), and manipulate it's ID using newNum value
+                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+
+                // manipulate the name/id values of the input inside the new element
+                newElem.children(':first').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+
+                // insert the new element after the last "duplicatable" input field
+                $('#input' + num).after(newElem);
+
+                // enable the "remove" button
+                $('#btnDel').attr('disabled', '');
+
+                // business rule: you can only add 5 names
+                if (newNum == 20)
+                    $('#btnAdd').attr('disabled', 'disabled');
+            });
+
+            $('#btnDel').click(function () {
+                var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+                $('#input' + num).remove();     // remove the last element
+
+                // enable the "add" button
+                $('#btnAdd').attr('disabled', '');
+
+                // if only one element remains, disable the "remove" button
+                if (num - 1 == 1) {
+                    $('#btnDel').attr('disabled', 'disabled');
+                }
+            });
+
+            $('#btnDel').attr('disabled', 'disabled');
+        });
+    </script>
+
+
+
 </head>
 <body class="nav-md">
 
 
     <div class="x_panel">
         <div class="x_title">
-            <h2><small></small></h2>
-           
+            <h2>Comidas</h2>
+            <ul class="nav navbar-right panel_toolbox">
+                <li>
+                    <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                    <ul class="dropdown-menu" role="menu"></ul>
+                </li>
+                <li>
+                    <a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+            </ul>
             <div class="clearfix"></div>
         </div>
         <div class="x_content">
 
             <div class="row">
 
-   <!--informacion contenido-->
+                <!--informacion contenido-->
 
 
-                <div class="row">
-                   <div class="x_panel col-sm-12 col-sm-offset-4" >
+                <div class="row col-md-12">
+                    <div class="col-lg-12">
                         <div class="panel panel-info">
                             <div class="panel-heading">
                                 <i class="fa fa-user-md fa-fw"></i>Has tu Propia Receta
@@ -65,43 +126,31 @@
                                             <input name="ctl00$ContentPlaceHolder1$txt_Descripcion" id="ContentPlaceHolder1_txt_Descripcion" type="text" class="form-control" placeholder="Breve descripción">
                                         </div>
                                         <div class="form-group">
-                                            <label class="control-label">Ingredientes</label>
+                                            <div class="form-group">
+                                                <form id="testform">
+                                                    <fieldset>
+                                                        <label>Agregar otro ingrediente?</label>
+                                                        <input type="button" id="btnAdd" value="+" />
+                                                        <input type="button" id="btnDel" value="-" />
+                                                    </fieldset>
 
-                                            <form id="bookForm" method="post" class="form-horizontal">
-                                                <div class="form-group">
-                                                    
-                                                    <div class="col-xs-2">
-                                                        <input type="text" class="form-control" name="book[0].title" placeholder="Cantidad" />
-                                                    </div>
-                                                    <div class="col-xs-4">
-                                                        <input type="text" class="form-control" name="book[0].isbn" placeholder="Medida" />
-                                                    </div>
-                                                    <div class="col-xs-4 col-xs-offset-1">
-                                                        <input type="text" class="form-control" name="book[0].price" placeholder="Ingrediente" />
-                                                    </div>
-                                                    <div class="col-xs-1">
-                                                        <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
-                                                    </div>
-                                                </div>
+                                                    <fieldset id="input1" class="clonedInput">
+                                                        <div class="col-xs-2">
+                                                            <label>Cantidad  </label>
+                                                            <input type="text" name="name1" id="name1" class="form-control" />
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <label>Tipo de Medida  </label>
+                                                            <input type="text" name="name1" id="name1" class="form-control" />
+                                                        </div>
+                                                        <div class="col-xs-4">
+                                                            <label>Nombre ingrediente  </label>
+                                                            <input type="text" name="name1" id="name1" class="form-control" />
+                                                        </div>
+                                                    </fieldset>
 
-                                                <!-- The template for adding new field -->
-                                                <div class="form-group hide" id="bookTemplate">
-                                                    <div class="col-xs-2">
-                                                        <input type="text" class="form-control" name="title" placeholder="Cantidad" />
-                                                    </div>
-                                                    <div class="col-xs-4">
-                                                        <input type="text" class="form-control" name="isbn" placeholder="Medida" />
-                                                    </div>
-                                                    <div class="col-xs-4 col-xs-offset-1">
-                                                        <input type="text" class="form-control" name="price" placeholder="Ingrediente" />
-                                                    </div>
-                                                    <div class="col-xs-1">
-                                                        <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
-                                                    </div>
-                                                </div>
-
-                                                
-                                            </form>
+                                                </form>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="control-label">Enfermedad</label>
@@ -112,9 +161,7 @@
                                             <input name="ctl00$ContentPlaceHolder1$txt_Descripcion" id="ContentPlaceHolder1_txt_Descripcion" type="text" class="form-control" placeholder="Seleccione una Clasificacion">
                                         </div>
 
-                                        <div class="form-group">
 
-                                        </div>
                                     </div>
 
                                     <div class="col-lg-3">
@@ -125,6 +172,7 @@
                                             <img id="ContentPlaceHolder1_Img_Anuncio" class="img-responsive" src="../../IMG/hola.jpg" style="height:250px;width:200px;">
                                             <p></p>
                                             <p></p>
+                                            <br />
                                             <label class="control-label">Agregue una imagen</label>
                                             <input type="file" name="ctl00$ContentPlaceHolder1$FileUpload1" id="ContentPlaceHolder1_FileUpload1">
                                         </div>
@@ -139,6 +187,10 @@
                         </div>
                     </div>
                 </div>
+@using (Ajax.BeginForm("HastuReceta", "Usuario", new AjaxOptions() { HttpMethod = "POST" }))
+{
+    @Html.AntiForgeryToken()
+                <button onclick="aceptar()"  type="submit" class="btn btn-success">Agregar</button>}
 
 
 
@@ -150,103 +202,6 @@
 
         </div>
     </div>
-
-
-
-    <script>
-        
-        $(document).ready(function () {
-    var titleValidators = {
-            row: '.col-xs-4',   // The title is placed inside a <div class="col-xs-4"> element
-            validators: {
-                notEmpty: {
-                    message: 'The title is required'
-                }
-            }
-        },
-        isbnValidators = {
-            row: '.col-xs-4',
-            validators: {
-                notEmpty: {
-                    message: 'The ISBN is required'
-                },
-                isbn: {
-                    message: 'The ISBN is not valid'
-                }
-            }
-        },
-        priceValidators = {
-            row: '.col-xs-2',
-            validators: {
-                notEmpty: {
-                    message: 'The price is required'
-                },
-                numeric: {
-                    message: 'The price must be a numeric number'
-                }
-            }
-        },
-        bookIndex = 0;
-
-    $('#bookForm')
-        .formValidation({
-            framework: 'bootstrap',
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
-                'book[0].title': titleValidators,
-                'book[0].isbn': isbnValidators,
-                'book[0].price': priceValidators
-            }
-        })
-
-        // Add button click handler
-        .on('click', '.addButton', function() {
-            bookIndex++;
-            var $template = $('#bookTemplate'),
-                $clone    = $template
-                                .clone()
-                                .removeClass('hide')
-                                .removeAttr('id')
-                                .attr('data-book-index', bookIndex)
-                                .insertBefore($template);
-
-            // Update the name attributes
-            $clone
-                .find('[name="title"]').attr('name', 'book[' + bookIndex + '].title').end()
-                .find('[name="isbn"]').attr('name', 'book[' + bookIndex + '].isbn').end()
-                .find('[name="price"]').attr('name', 'book[' + bookIndex + '].price').end();
-
-            // Add new fields
-            // Note that we also pass the validator rules for new field as the third parameter
-            $('#bookForm')
-                .formValidation('addField', 'book[' + bookIndex + '].title', titleValidators)
-                .formValidation('addField', 'book[' + bookIndex + '].isbn', isbnValidators)
-                .formValidation('addField', 'book[' + bookIndex + '].price', priceValidators);
-        })
-
-        // Remove button click handler
-        .on('click', '.removeButton', function() {
-            var $row  = $(this).parents('.form-group'),
-                index = $row.attr('data-book-index');
-
-            // Remove fields
-            $('#bookForm')
-                .formValidation('removeField', $row.find('[name="book[' + index + '].title"]'))
-                .formValidation('removeField', $row.find('[name="book[' + index + '].isbn"]'))
-                .formValidation('removeField', $row.find('[name="book[' + index + '].price"]'));
-
-            // Remove element containing the fields
-            $row.remove();
-        });
-});
-    </script>
-
-
-
 
 
 
@@ -283,8 +238,8 @@
     <script src="~/Conten_admin/vendors/flot.curvedlines/curvedLines.js"></script>
     <!-- DateJS -->
     <script src="~/Conten_admin/vendors/DateJS/build/date.js"></script>
-  
-  
+
+
 
     <!-- Custom Theme Scripts -->
     <script src="~/Conten_admin/build/js/custom.min.js"></script>
@@ -292,11 +247,9 @@
     <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/easypiechart.min.js"></script>
     <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.js"></script>
     <script src="~/Conten_admin/vendors/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-    
+
 
 
 
 </body>
 </html>
-
-

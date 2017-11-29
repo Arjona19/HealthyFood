@@ -84,6 +84,9 @@
 <div class="x_panel">
     <div class="x_title">
         <h2>Lista de Ingredientes </h2>
+        <br /><br />
+        @using (Ajax.BeginForm("ReporteIngredientes", "Admin_principal_", new AjaxOptions() { HttpMethod = "POST" }))
+        { @Html.AntiForgeryToken()<button class="btn btn-success" style="border:0px; left:5%;">Generar Reporte</button>}
         <ul class="nav navbar-right panel_toolbox">
             <li>
                 <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>

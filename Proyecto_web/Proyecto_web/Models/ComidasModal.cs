@@ -14,12 +14,12 @@ namespace Proyecto_web.Models
 
         public DataTable Comidas_Aprobadas()
         {
-            string Con_SQL = string.Format("select Nombre, ID_clasificacion, Descripcion, ID_usuario, ID from Comidas  where Estatus = '1'  ");
+            string Con_SQL = string.Format("select C.Nombre, CL.Nombre  as 'Clasificacion', C.Descripcion, U.Nombre_Usuario, C.ID, C.Estatus from Comidas C INNER JOIN Usuarios U  ON C.ID_usuario = U.ID INNER JOIN Clasificacion CL on C.ID_clasificacion = CL.ID_clasificacion where C.Estatus = '1'  ");
             return conex.Tabla_Consultada(Con_SQL);
         }
         public DataTable Comidas_Desaprobadas()
         {
-            string Con_SQL = string.Format("select Nombre, ID_clasificacion, Descripcion, ID_usuario, ID from Comidas  where Estatus = '2' ");
+            string Con_SQL = string.Format("select C.Nombre, CL.Nombre  as 'Clasificacion', C.Descripcion, U.Nombre_Usuario, C.ID, C.Estatus from Comidas C INNER JOIN Usuarios U  ON C.ID_usuario = U.ID INNER JOIN Clasificacion CL on C.ID_clasificacion = CL.ID_clasificacion where C.Estatus = '2'  ");
             return conex.Tabla_Consultada(Con_SQL);
         }
 
