@@ -3,55 +3,43 @@
     ViewBag.Title = "VerTodaslasComidas";
     Layout = "~/Views/Usuario/Index_Usuario.cshtml";
 }
-<link href="~/Conten_admin/Inicio_Admin_Recursos/Cards.css" rel="stylesheet" />
-<div class="row">
-    <div class="col-md-12">
-        <div class="x_panel">
-            <div class="x_title">
-                <h2>Recetas de cocina</h2>
-                <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                </ul>
-                <div class="clearfix"></div>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12 card wizard-card alto  animated fadeInLeft">
+
+            <div class="col-md-12">
+                @foreach (DataRow row in Model.Rows)
+            {
+                    <tr id="fila_@row["ID"]">
+                        <article class="card col-lg-6">
+                            <header class="card__thumb">
+                                <a href="#">
+                                    <img src="http://lorempicsum.com/futurama/370/235/2">
+                                </a>
+                            </header>
+                            <div class="card__date">
+                                <span class="card__date__day">12</span>
+                                <span class="card__date__month">Mai</span>
+                            </div>
+                            <div class="card__body">
+                                <div class="card__category"><a href="#">@row["Nombre_Usuario"]</a></div>
+                                <h2 class="card__title"><a href="#">@row["Nombre"]</a></h2>
+                                <div class="card__subtitle">@row["Clasificacion"]</div>
+                                <p class="card__description">
+                                    @row["Descripcion"]
+                                </p>
+                            </div>
+
+                        </article>
+                    </tr>
+                }
             </div>
 
-            <div class="x_content">
-                <div class="row">
-
-                    <div class="col-md-12">
-                        @foreach (DataRow row in Model.Rows)
-                        {
-                            <tr id="fila_@row["ID"]">
-                                <article class="card col-lg-6">
-                                    <header class="card__thumb">
-                                        <a href="#">
-                                            <img src="http://lorempicsum.com/futurama/370/235/2">
-                                        </a>
-                                    </header>
-                                    <div class="card__date">
-                                        <span class="card__date__day">12</span>
-                                        <span class="card__date__month">Mai</span>
-                                    </div>
-                                    <div class="card__body">
-                                        <div class="card__category"><a href="#">@row["Nombre_Usuario"]</a></div>
-                                        <h2 class="card__title"><a href="#">@row["Nombre"]</a></h2>
-                                        <div class="card__subtitle">@row["Clasificacion"]</div>
-                                        <p class="card__description">
-                                            @row["Descripcion"]
-                                        </p>
-                                    </div>
-
-                                </article>
-                            </tr>
-                        }
-                    </div>
-                </div>
-
-            </div>
-
-
-            </div>
-</div>
-</div>
+        </div>
+    </div>
+</body>
+</html>

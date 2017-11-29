@@ -398,7 +398,7 @@ namespace Proyecto_web.Controllers
         {
             RespaldoModal ObjR = new RespaldoModal();
             ObjR.Respaldo();
-            return View();
+            return View("Inicio_Admin");
         }
 
         public ActionResult ReporteIngredientes()
